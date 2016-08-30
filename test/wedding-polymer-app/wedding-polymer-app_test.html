@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>wedding-polymer-app test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../src/wedding-polymer-app/wedding-polymer-app.html">
+  </head>
+  <body>
+
+    <test-fixture id="basic">
+      <template>
+        <wedding-polymer-app></wedding-polymer-app>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('wedding-polymer-app', function() {
+
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 'wedding-polymer-app');
+        });
+
+      });
+    </script>
+  </body>
+</html>

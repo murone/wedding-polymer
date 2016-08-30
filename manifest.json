@@ -1,0 +1,7 @@
+{
+  "name": "wedding-polymer",
+  "short_name": "wedding-polymer",
+  "description": "Polymer version of wedding site.",
+  "start_url": "/",
+  "display": "standalone"
+}

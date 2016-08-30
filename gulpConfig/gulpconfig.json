@@ -1,0 +1,17 @@
+{
+    "_comment1":"Location of your SASS files to be compiled. This may be a regex or a file, or an array any of those.",
+    "sassFileSources": ["./sass/**/*.scss"],
+
+    "_comment2":"Temp folder for CSS files. This folder will be added to and deleted depending on the task.",
+    "cssDestFolder": "./css",
+
+    "_comment3":"Directory where you want your polymer modules to live",
+    "polymerModuleDest": "./",
+    
+    "_comment4":"Array of files/REGEX you'd like to delete after making a build (all the stuff inbetween the final step).",
+    "_comment5":"This already includes the cssDestFolder.",
+    "cleanupAfterBuild": [],
+    
+    "_comment6":"Array of files/REGEX you'd like to delete before making a build. This already includes the cssDestFolder.",
+    "cleanupToMakeNewBuild": []
+}

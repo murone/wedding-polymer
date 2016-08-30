@@ -1,0 +1,76 @@
+body {
+	@apply(--layout-inline);
+	@apply(--layout-center-center);
+	@apply(--layout-wrap);
+}
+paper-header-panel {
+	height: 100vh;
+	margin: 0;
+	@apply(--shadow-elevation-2dp);
+}
+.paper-header {
+	height: 3em;
+	font-size: 16px;
+	line-height: 60px;
+	padding: 0 10px;
+	color: black;
+	transition: height 0.2s;
+	width: 100vw;
+}
+.paper-header.tall {
+	height: 120px;
+}
+.paper-header.medium-tall {
+	height: 100px;
+	line-height: 50px;
+}
+.content {
+	height: 4000px;
+}
+.cover {
+	margin: 60px;
+}
+.blue .paper-header {
+	background-color: var(--paper-light-blue-500);
+}
+.red .paper-header {
+	background-color: var(--paper-red-500);
+}
+.orange .paper-header {
+	background-color: var(--paper-amber-500);
+}
+.green .paper-header {
+	background-color: var(--paper-green-500);
+}
+.cyan .paper-header {
+	background-color: var(--paper-cyan-500);
+}
+.lime .paper-header {
+	background-color: var(--paper-lime-500);
+}
+.pink .paper-header {
+	background-color: var(--paper-pink-a200);
+}
+/* TODO: replace these with background: linear-gradient(white, var(...))
+ when custom properties allow it */
+.blue .content {
+	background: linear-gradient(white, #b3e5fc);
+}
+.red .content {
+	background: linear-gradient(white, #ffcdd2);
+}
+.orange .content {
+	background: linear-gradient(white, #ffecb3);
+}
+.green .content {
+	background: linear-gradient(white, #c8e6c9);
+}
+.cyan .content {
+	background: linear-gradient(white, #b2ebf2);
+}
+.lime .content {
+	background: linear-gradient(white, #f0f4c3);
+}
+.pink .content {
+	background: linear-gradient(white, #f8bbd0);
+}
