@@ -4,7 +4,7 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var stylemod = require('gulp-style-modules');
 var mincss = require('gulp-clean-css');
-var GulpSSH = require('gulp-ssh');
+// var GulpSSH = require('gulp-ssh');
 
 //Node Packages
 var importOnce = require('node-sass-import-once');
@@ -14,15 +14,15 @@ var path = require('path');
 
 //Configuration task packages
 var config = require('./gulpConfig/gulpconfig.json');
-var credentials = require('./gulpConfig/credentials.json');
-var ssh = new GulpSSH({
-    ignoreErrors: false,
-    sshConfig: {
-        host: credentials.hostURL,
-        username: credentials.username,
-        password: credentials.password,
-    }
-});
+// var credentials = require('./gulpConfig/credentials.json');
+// var ssh = new GulpSSH({
+//     ignoreErrors: false,
+//     sshConfig: {
+//         host: credentials.hostURL,
+//         username: credentials.username,
+//         password: credentials.password,
+//     }
+// });
 
 /* Compile SASS */
 gulp.task('sass', function() {
@@ -70,17 +70,19 @@ gulp.task("polymerize", function() {
         .pipe(gulp.dest(config.polymerModuleDest));
 });
 
-/* Copy smaller files to the remote server */
-gulp.task('deploy', function() {
-    return gulp.src(credentials.filesToDeploy)
-        .pipe(ssh.dest(credentials.remotePath));
-});
 
-/* Copy large, one time setup files to the remote server + the smaller guys*/
-gulp.task('deploy:initialize', function() {
-    return gulp.src(credentials.filesToDeploy.concat(credentials.bigFilesAndFolders))
-        .pipe(ssh.dest(credentials.remotePath));
-});
+// /* Copy smaller files to the remote server */
+// gulp.task('deploy', function() {
+//     return gulp.src(credentials.filesToDeploy)
+//         .pipe(ssh.dest(credentials.remotePath));
+// });
+
+//  Copy large, one time setup files to the remote server + the smaller guys
+// gulp.task('deploy:initialize', function() {
+//     return gulp.src(credentials.filesToDeploy.concat(credentials.bigFilesAndFolders))
+//         .pipe(ssh.dest(credentials.remotePath));
+// });
+
 
 /* Tasks for cleanup before and after a build */
 gulp.task('clean:build', function() {
