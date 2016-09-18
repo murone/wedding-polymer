@@ -13,14 +13,14 @@
 	</head>
 	 <style is="custom-style" include="index-styles"></style>
 	<body>
-		<!-- <style inculde="index-styles"></style> -->
 		
-		<paper-header-panel mode="waterfall-tall" class="cyan header-panel">
+		<paper-header-panel mode="waterfall-tall" class="cyan header-panel" tall-class="tall">
 			<div class="paper-header">
-				<div class="row full-height">
-					<!-- <h1>waterfall-tall</h1> -->
-					<header class="col-4"><h1 class="main-header">CHRIS &amp; ASHLEY</h1></header>
-					<div class="col-8 main-nav">
+				<header class="full-height">
+					<div class="heading-wrap">
+						<h1 class="main-title">CHRIS &amp; ASHLEY</h1>
+					</div>
+					<nav class="main-nav">
 						<ul class="nav-ul">
 							<li class="nav-li">
 								<a class="nav-a" href=""><span>ONE</span></a>
@@ -34,20 +34,23 @@
 							<li class="nav-li">
 								<a class="nav-a" href=""><span>FOUR</span></a>
 							</li>
-						</ul>
-					</div>
-				</div>
+						</ul> 
+					</nav>
+				</header>
 			</div>
-			<div class="content">
-				<div class="colorpanel blue"></div>
-				<div class="colorpanel orange"></div>
-				<div class="colorpanel red"></div>
-				<div class="colorpanel yellow"></div>
+			<div class="content docScroller">
+				<section class="colorpanel1 blue"><h2 class="section-title">OUR STORY</h2></section>
+				<section class="colorpanel orange"></section>
+				<section class="colorpanel red"></section>
+				<section class="colorpanel yellow"></section>
 			</div>
 		</paper-header-panel>
 		<!-- <wedding-polymer-header></wedding-polymer-header> -->
 <!--     <wedding-polymer-app></wedding-polymer-app>
- -->  </body>
+ -->	
+ 		
+		<script src="js/scrollsnap-polyfill.bundled.js"></script>  
+	</body>
 </html>
 
 <!doctype html>
