@@ -5,6 +5,10 @@
 <link rel="import" href="../../bower_components/app-route/app-route.html">
 <link rel="import" href="./app-styles.html">
 
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-icons/maps-icons.html">
+
+
 <dom-module id="wedding-polymer-app">
 	<template>
 		
@@ -40,8 +44,8 @@
 			<div class="content">
 
 				<iron-pages selected="{{routeData.page}}" attr-for-selected="id" fallback-selection="our-story">
-					<div id="our-story">
-						<section class="colorpanel colorpanel1 blue"><h2 class="section-title">OUR STORY</h2></section>
+					<div id="our-story" class="ipage">
+						<section class="colorpanel our-story"><h2 class="section-title">OUR STORY</h2></section>
 						<section class="colorpanel orange">
 							<span>I STOLE THIS PARAGRAPH FROM SQUARESPACE FOR NOW</span>
 							<h3>We met in college...</h3>
@@ -52,17 +56,39 @@
 							All photography provided by Lear Miller.</p>
 						</section>
 						<section class="colorpanel red"><h2 class="section-title">HE PROPOSED</h2></section>
-						<section class="footer break"><h2 class="section-title">I NEED SOMETHING HERE TO BREAK THIS UP</h2></section>
+						<section class="footer break"><h2 class="section-title">I NEED SOMETHING HERE FOR WHITESPACE</h2></section>
 						<section class="colorpanel yellow"><h2 class="section-title">SHE SAID YES</h2></section>
 						<section class="footer"><h2 class="section-title">THIS IS A FOOTER</h2></section>
 					</div>
-					<div id="when-where">
-						<h2 style="color:darkgray">WHEN AND WHERE</h2>
+					<div id="when-where" class="ipage">
+						<section class="colorpanel date"><h2 class="section-title">SEPTEMBER 23, 2017</h2></section>
+						<section class="colorpanel city"><h2 class="section-title">NEW WILMINGTON</h2></section>
+						<section class="colorpanel event">
+							<h1 class="">Ceremony and Reception</h1>
+							<h3 class="">Saturday, September 23, 2017<br>4:00 - 10:00 PM</h3>
+							<p class="venue"><em>Five Fillies Farm</em><br>3207 PA-208<br>New Wilmington, PA 16142</p>
+							<a href="https://www.google.com/maps/place/Five+Fillies+Farm/@41.1208165,-80.36669,213m/data=!3m1!1e3" tabindex="-1"  target="_blank" ><paper-icon-button icon="maps:near-me"></paper-icon-button></a>
+						</section>
+						<section class="colorpanel accommodations">
+							<h1 class="">Accommodations</h1>
+							<h3 class="">A group rate is available at:</h3>
+							<div class="hotel-wrap">								
+								<div class="hotel hilton"><p class="venue"><em>Holiday Inn Express</em><br>3207 PA-208<br>Hermitage, PA</p><a href="https://www.ihg.com/holidayinnexpress/hotels/us/en/west-middlesex/hgepa/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-USA-_-HGEPA" tabindex="-1"  target="_blank" ><paper-icon-button icon="maps:hotel"></paper-icon-button></a></div>
+								
+							</div>
+						</section>
+
+
+						
+						
+						
+
+
 					</div>
-					<div id="registry">
+					<div id="registry" class="ipage">
 						<h2 style="color:darkgray">REGISTRY</h2>
 					</div>
-					<div id="rsvp">
+					<div id="rsvp" class="ipage">
 						<h2 style="color:darkgray">RSVP</h2>
 					</div>
 				</iron-pages>

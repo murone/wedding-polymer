@@ -123,7 +123,6 @@ h1{
 
 
 
-
 /*//////////////CONTENT AREA//////////////*/
 
 section{
@@ -160,7 +159,7 @@ iron-pages {
 	width: 100%;
 }
 
-iron-pages div {
+.ipage {
 	width: 100vw;
 	/*height: 100%;*/
 }
@@ -188,29 +187,22 @@ iron-pages div {
 	background-repeat: no-repeat;
 	background-position: center bottom;
 }
-.blue{
+
+/*//////////////OUR-STORY-CONTENT//////////////*/
+.our-story{
 	background-image: url(../../img/our-story.jpg);
-	height: calc(100vh - 6em);
+	height: calc(100vh - 8em);
 }
 .orange{
 	padding: 5em;
 }
 .red{
-	/*background-color: red;*/
 	height: calc(100vh - 3em);
 	background-image: url(../../img/he-proposed.jpg); 
 }
 .yellow{
-	/*background-color: blue;*/
 	height: calc(100vh - 3em);
 	background-image: url(../../img/she-said-yes.jpg);
-}
-.footer{
-	/*height: 30vh;*/
-	padding-bottom: 0;
-}
-.footer h2{
-	color: rgb(124,124,132);
 }
 .break{
 	padding: 5%;
@@ -220,6 +212,76 @@ iron-pages div {
 }
 
 
+/*//////////////WHEN-WHERE-CONTENT//////////////*/
+.date{
+	height: calc(100vh - 8em);
+	background-color: lightgray;
+}
+.city{
+	height: calc(100vh - 3em);
+	background-color: darkgray;
+}
+.event{
+	padding: 5%;
+}
+.venue{
+	font-size: 1.2em;
+}
+.accommodations{
+	padding: 5%;
+	background-color: lightgray;
+}
+.hotel-wrap{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+.hotel{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	font-size: 1.2em;
+	margin: 0;
+	min-width: 20em;
+	align-items: center;
+	justify-content: center;
+}
+
+
+paper-icon-button{
+	color: rgb(82,81,86);
+	width: 5em;
+	height: 5em;
+	--paper-icon-button-ink-color: white;
+}
+
+/*a paper-icon-button,
+a:active paper-icon-button,
+a:visited paper-icon-button {
+	color: #000000;
+}*/
+
+
+/*//////////////FOOTER-CONTENT//////////////*/
+.footer{
+	/*height: 30vh;*/
+	padding-bottom: 0;
+}
+.footer h2{
+	color: rgb(124,124,132);
+}
+
+
+
+
+/*//////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////*/
+/*////////////////TINY-SCREEN BREAKPOINT////////////////*/ 
+/*//////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////*/
 @media screen and (max-width: 400px){
 	h2{
 		font-size: 2em;
@@ -228,8 +290,12 @@ iron-pages div {
 }
 
  
+/*//////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////*/
+/*//////////////////DESKTOP BREAKPOINT//////////////////*/ 
+/*//////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////*/
 
-	/*//////////////DESKTOP BREAKPOINT//////////////*/
 @media screen and (min-width: 810px){
 	/*//////////////PAPER STYLES//////////////*/
 	.paper-header.tall {
@@ -305,8 +371,8 @@ iron-pages div {
 		font-family: 'Open Sans', sans-serif;
 	}
 
-	/*//////////////CONTENT AREA//////////////*/
 
+	/*//////////////CONTENT AREA//////////////*/
 	h2{
 		font-size: 6em;
 	}
@@ -337,20 +403,22 @@ iron-pages div {
 		background-repeat: no-repeat;
 		background-position: center bottom;
 	}
-	.blue{
+
+	/*//////////////OUR-STORY-CONTENT//////////////*/
+	.our-story{
 		height: calc(100vh - 6em);
 	}
-	.orange{
-		padding: 5em;
+
+
+
+	/*//////////////WHEN-WHERE-CONTENT//////////////*/
+	.date{
+		height: calc(100vh - 6em);
 	}
-	.red{
-		/*background-color: red;*/
-		height: calc(100vh - 3em);
-	}
-	.yellow{
-		/*background-color: blue;*/
-		height: calc(100vh - 3em);
-	}
+
+
+
+	/*//////////////FOOTER-CONTENT//////////////*/
 	.footer{
 		/*height: 30vh;*/
 		padding-bottom: 0;
@@ -358,14 +426,5 @@ iron-pages div {
 	.footer h2{
 		color: rgb(124,124,132);
 	}
-	.break{
-		padding: 5%;
-	}
-	.break h2{
-		color: rgb(124,124,132);
-	}
-
-
-
 
 }
