@@ -30,7 +30,7 @@ paper-header-panel {
 	width: 100vw;
 }
 .paper-header.tall {
-	height: 6em;
+	height: 8em;
 }
 
 
@@ -141,41 +141,69 @@ h2{
 	letter-spacing: .2em;
 	font-size: 6em;
 	color: rgb(255,255,255);
+	text-align: center;
+	/*text-shadow: .01em .01em .02em #333;*/
+}
+
+h3{
+	font-family: 'Open Sans', sans-serif;
+	font-variant: small-caps;
+	font-weight: 300;
+	letter-spacing: .2em;
+	font-size: 3em;
+	color: rgb(124,124,132);
+	text-align: center;
 	/*text-shadow: .01em .01em .02em #333;*/
 }
 
 .content {
-	/*height: calc((100vh - 3em) * 4 - 3em + 30vh);*/
 }
 .colorpanel{
-	height: calc(100vh - 3em);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: center center;	
 }
-.colorpanel1{
-	height: calc(100vh - 6em);
+.colorpanel span{
+	width: 100%;
+	text-align: center;
+}
+.colorpanel p{
+	width: 50%;
+	text-align: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center bottom;
 }
-.footer{
-	height: 30vh;
-}
 .blue{
-	background-image: url(../img/our-story.jpg); 
+	background-image: url(../img/our-story.jpg);
+	height: calc(100vh - 6em);
 }
 .orange{
-	background-color: orange;
+	padding: 5em;
 }
 .red{
-	background-color: red;
+	/*background-color: red;*/
+	height: calc(100vh - 3em);
+	background-image: url(../img/he-proposed.jpg);
 }
 .yellow{
-	background-color: blue;
+	/*background-color: blue;*/
+	height: calc(100vh - 3em);
+	background-image: url(../img/she-said-yes.jpg);
 }
 .green{
 	background-color: green;
+}
+.footer{
+	height: 30vh;
+	padding-bottom: 0;
+}
+.footer h2{
+	padding-bottom: 0;
 }
 
 
@@ -189,23 +217,10 @@ h2{
 
 
 
-@media screen and (min-width: 750px){
+@media screen and (min-width: 810px){
 	/*//////////////PAPER STYLES//////////////*/
-	paper-header-panel {
-		height: 100vh;
-		margin: 0;
-		@apply(--shadow-elevation-2dp);
-	}
-	.paper-header {
-		display: flex;
-		height: 3em;
-		font-size: 16px;
-		line-height: 60px;
-		padding: 0;
-		color: black;
-	}
 	.paper-header.tall {
-		/*height: 6em;*/
+		height: 6em;
 	}
 
 
@@ -220,14 +235,12 @@ h2{
 	}
 
 
-
-
 	/*//////////////TITLE AREA//////////////*/
 	h1{
 		/*font-size: 2em;*/
 	}
 	.heading-wrap{
-		width: 50%;
+		width: 30%;
 		
 		align-items: center;
 		justify-content: center;
@@ -251,7 +264,7 @@ h2{
 		justify-content: flex-end;
 		align-items: center;
 		height: 2.5em;
-		width: 50%;
+		width: 70%;
 		/*background-color: lightgray;*/
 	}
 	.nav-ul{
