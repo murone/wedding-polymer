@@ -1,28 +1,82 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="./wedding-polymer-header.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="./app-styles.html">
 
 <dom-module id="wedding-polymer-app">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
-    <wedding-polymer-header></wedding-polymer-header>
-  </template>
+	<template>
+		
+		<style inculde="app-styles"></style>
 
-  <script>
-    Polymer({
+		<paper-header-panel mode="waterfall-tall" class="cyan header-panel" tall-class="tall">
+			<div class="paper-header">
+				<header class="full-height">
+					<div class="heading-wrap">
+						<h1 class="main-title">CHRIS &amp; ASHLEY</h1>
+					</div>
+					<nav class="main-nav">
+						<ul class="nav-ul">
+							<li class="nav-li" id="our-story">
+								<a class="nav-a" href="our-story"><span>OUR STORY</span></a>
+							</li>
+							<li class="nav-li" id="when-where">
+								<a class="nav-a" href="when-where"><span>WHEN &AMP; WHERE</span></a>
+							</li>
+							<li class="nav-li" id="registry">
+								<a class="nav-a" href="registry"><span>REGISTRY</span></a>
+							</li>
+							<li class="nav-li" id="rsvp">
+								<a class="nav-a" href="rsvp"><span>RSVP</span></a>
+							</li>
+						</ul> 
+					</nav>
+				</header>
+			</div>
+			<div class="content">
 
-      is: 'wedding-polymer-app',
+				<!-- **********IMPLEMENT IRON-PAGES HERE********** -->
 
-      properties: {
-        prop1: {
-          type: String,
-          value: 'wedding-polymer-app',
-        },
-      },
+				<section class="colorpanel colorpanel1 blue"><h2 class="section-title">OUR STORY</h2></section>
+				<section class="colorpanel orange">
+					<span>I STOLE THIS PARAGRAPH FROM SQUARESPACE FOR NOW</span>
+					<h3>We met in college...</h3>
+					<p>
+					Our mutual friends Kylla and Miki set us up originally, thinking we'd be perfect for each other. After our first date, we both decided we weren't interested! But several months later we happened to go on the same group camping trip, and saw each other in a new light. We fell in love. And we can't wait to spend the rest of our lives together.<br/><br/>
+					 
 
-    });
-  </script>
+					All photography provided by Lear Miller.</p>
+				</section>
+				<section class="colorpanel red"><h2 class="section-title">HE PROPOSED</h2></section>
+				<section class="footer break"><h2 class="section-title">I NEED SOMETHING HERE TO BREAK THIS UP</h2></section>
+				<section class="colorpanel yellow"><h2 class="section-title">SHE SAID YES</h2></section>
+				<section class="footer"><h2 class="section-title">THIS IS A FOOTER</h2></section>
+
+
+			</div>
+		</paper-header-panel>
+
+
+	</template>
+
+	<script>
+		Polymer({
+
+			is: 'wedding-polymer-app',
+			
+			// page('/', () => {
+			// 	page.redirect('/our-story');
+			// });	
+
+			// page('/our-story', () => {
+			// 	if(Polymer.isInstance()
+			// });
+
+			properties: {
+				prop1: {
+					type: String,
+					value: 'wedding-polymer-app',
+				},
+			},
+
+		});
+	</script>
 </dom-module>
