@@ -50,19 +50,31 @@
 							<span>I STOLE THIS PARAGRAPH FROM SQUARESPACE FOR NOW</span>
 							<h3>We met in college...</h3>
 							<p>
-							Our mutual friends Kylla and Miki set us up originally, thinking we'd be perfect for each other. After our first date, we both decided we weren't interested! But several months later we happened to go on the same group camping trip, and saw each other in a new light. We fell in love. And we can't wait to spend the rest of our lives together.<br/><br/>
+							Our mutual friends Kylla and Miki set us up originally, thinking we'd be perfect for each other. After our first date, we both decided we weren't interested! But several months later we happened to go on the same group camping trip, and saw each other in a new light. We fell in love. And we can't wait to spend the rest of our lives together.<br/><br/></p>
 							 
 
-							All photography provided by Lear Miller.</p>
+							<img srcset="../../img/slyn.jpg 1x, ../../img/slyn-2x.jpg 2x" alt="…">
+							<p>All photography provided by <a href="http://www.slynnphotography.com/">Sara Dinwiddie</a>.
+							</p>
+							<img
 						</section>
 						<section class="colorpanel red"><h2 class="section-title">HE PROPOSED</h2></section>
 						<section class="footer break"><h2 class="section-title">I NEED SOMETHING HERE FOR WHITESPACE</h2></section>
 						<section class="colorpanel yellow"><h2 class="section-title">SHE SAID YES</h2></section>
-						<section class="footer"><h2 class="section-title">THIS IS A FOOTER</h2></section>
+						<section class="footer">
+							<h2 class="section-title">THIS IS A FOOTER</h2>
+							<span>Website by Chris Murone</span>
+						</section>
 					</div>
 					<div id="when-where" class="ipage">
 						<section class="colorpanel date"><h2 class="section-title">SEPTEMBER 23, 2017</h2></section>
-						<section class="colorpanel city"><h2 class="section-title">NEW WILMINGTON</h2></section>
+						<section class="colorpanel city">
+							<div class="feature map">
+								<h2 class="section-title nw">NEW WILMINGTON</h2>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077768.9284143746!2d-82.60805864565134!3d41.12068987928957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883396a9e3c02259%3A0x9f4bfaa49a4ec073!2sFive+Fillies+Farm!5e0!3m2!1sen!2sus!4v1478405522360" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div> 
+							
+						</section>
 						<section class="colorpanel event">
 							<h1 class="">Ceremony and Reception</h1>
 							<h3 class="">Saturday, September 23, 2017<br>4:00 - 10:00 PM</h3>
@@ -77,6 +89,7 @@
 								
 							</div>
 						</section>
+						
 
 
 						
@@ -111,10 +124,20 @@
 			},
 
 			ready: function(){
-				console.log(this.route.path);
 				if (this.route.path == "/"){
 					this.set('route.path', '/our-story');
-					console.log(this.route.path);
+				}
+				if (this.route.path == "/our-story/"){
+					this.set('route.path', '/our-story');
+				}
+				if (this.route.path == "/when-where/"){
+					this.set('route.path', '/when-where');
+				}
+				if (this.route.path == "/registry/"){
+					this.set('route.path', '/registry');
+				}
+				if (this.route.path == "/rsvp/"){
+					this.set('route.path', '/rsvp');
 				}
 			},
 

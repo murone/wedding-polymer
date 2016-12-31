@@ -13,5 +13,14 @@
     "cleanupAfterBuild": [],
     
     "_comment6":"Array of files/REGEX you'd like to delete before making a build. This already includes the cssDestFolder.",
-    "cleanupToMakeNewBuild": []
+    "cleanupToMakeNewBuild": [],
+
+    "_comment7":"Location of raw images to be resized",
+    "rawImages": ["./img_raw"],
+
+    "_comment8":"Destination to place resized but not yet optimized images",
+    "resImages": ["./img_res"],
+
+    "_comment8":"Destination to place optimized images",
+    "imageDest": ["./img"]
 }

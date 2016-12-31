@@ -5,6 +5,10 @@ var autoprefixer = require('gulp-autoprefixer');
 var stylemod = require('gulp-style-modules');
 var mincss = require('gulp-clean-css');
 // var GulpSSH = require('gulp-ssh');
+const imagemin = require('gulp-imagemin');
+var responsive = require('gulp-responsive');
+var shell = require('gulp-shell')
+
 
 //Node Packages
 var importOnce = require('node-sass-import-once');
@@ -14,15 +18,6 @@ var path = require('path');
 
 //Configuration task packages
 var config = require('./gulpConfig/gulpconfig.json');
-// var credentials = require('./gulpConfig/credentials.json');
-// var ssh = new GulpSSH({
-//     ignoreErrors: false,
-//     sshConfig: {
-//         host: credentials.hostURL,
-//         username: credentials.username,
-//         password: credentials.password,
-//     }
-// });
 
 /* Compile SASS */
 gulp.task('sass', function() {
@@ -70,20 +65,6 @@ gulp.task("polymerize", function() {
         .pipe(gulp.dest(config.polymerModuleDest));
 });
 
-
-// /* Copy smaller files to the remote server */
-// gulp.task('deploy', function() {
-//     return gulp.src(credentials.filesToDeploy)
-//         .pipe(ssh.dest(credentials.remotePath));
-// });
-
-//  Copy large, one time setup files to the remote server + the smaller guys
-// gulp.task('deploy:initialize', function() {
-//     return gulp.src(credentials.filesToDeploy.concat(credentials.bigFilesAndFolders))
-//         .pipe(ssh.dest(credentials.remotePath));
-// });
-
-
 /* Tasks for cleanup before and after a build */
 gulp.task('clean:build', function() {
     return del([config.cssDestFolder].concat(config.cleanupToMakeNewBuild));
@@ -93,12 +74,88 @@ gulp.task('clean:cleanup', function() {
     return del([config.cssDestFolder].concat(config.cleanupAfterBuild));
 });
 
+gulp.task('clean:imagemin', function() {
+    return del(config.imageDest);
+});
+
+gulp.task('clean:responsive', function() {
+    return del(config.resImages);
+});
+
 /* Build task */
 gulp.task('build', function(cb) {
     runSequence('clean:build', 'sass', 'prefix', 'minify', 'polymerize', 'clean:cleanup', cb);
 });
 
+/* Dist task */
+gulp.task('dist', function(cb) {
+    runSequence('build', 'img', 'polybuild');
+
+});
+
+/* Images task */
+gulp.task('img', function() {
+    runSequence('responsive', 'imagemin');
+
+});
+
 /* Watch task */
-gulp.task('default', function() {
+gulp.task('default', function(cb) {
     gulp.watch(config.sassFileSources, ['build']);
 });
+
+gulp.task('imagemin', ['clean:imagemin'], function() {
+    gulp.src('./' + config.resImages + '/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./' + config.imageDest))
+});
+
+gulp.task('responsive', ['clean:responsive'], function () {
+  return gulp.src(config.rawImages + '/*.{png,jpg}')
+    .pipe(responsive({
+      // Resize all JPG images to five different sizes: 400, 810, 1280, 1920, and original size for 2x screens.
+      'bg-*.jpg': [{
+        width: 400,
+        rename: { suffix: '-mobile' },
+      }, {
+        width: 810,
+        rename: { suffix: '-tablet' },
+      }, {
+        width: 1280,
+        rename: { suffix: '-laptop' },
+      }, {
+        width: 1920,
+        rename: { suffix: '-hd' },
+      }, {
+        // Compress, strip metadata, and rename original image
+        rename: { suffix: '-original' },
+      }],
+      // Resize all PNG images to be retina ready
+      // '*.png': [{
+      //   width: 250,
+      // }, {
+      //   width: 250 * 2,
+      //   rename: { suffix: '@2x' },
+      // }],
+      // Resize all PNG images to be retina ready
+      'slyn.jpg': [{
+        width: 200,
+      }, {
+        width: 200 * 2,
+        rename: { suffix: '-2x' },
+      }],
+    }, {
+      // Global configuration for all images
+      // The output quality for JPEG, WebP and TIFF output formats
+      quality: 70,
+      // Use progressive (interlace) scan for JPEG and PNG output
+      progressive: true,
+      // Strip all metadata
+      withMetadata: false,
+    }))
+    .pipe(gulp.dest('./' + config.resImages));
+});
+
+gulp.task('polybuild', shell.task([
+  'polymer build'
+]))
