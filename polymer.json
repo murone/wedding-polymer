@@ -1,0 +1,17 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/wedding-polymer-app/wedding-polymer-app.html",
+  "fragments": [
+    "",
+    ""
+  ],
+  "sources": [
+    "src/**/*",
+    "img/**/*",
+    "bower.json",
+    "index-styles.html"
+  ],
+  "includeDependencies": [
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}
