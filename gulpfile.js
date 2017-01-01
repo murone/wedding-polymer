@@ -44,7 +44,7 @@ gulp.task('minify', function() {
 gulp.task('prefix', function() {
     return gulp.src(config.cssDestFolder + '/**/*.css')
         .pipe(autoprefixer({
-            browsers: ['> 5%', 'ie > 10', 'not ie <= 10'],
+            browsers: ['last 4 versions'],
             cascade: false
         }))
         .pipe(gulp.dest(config.cssDestFolder));
@@ -139,9 +139,9 @@ gulp.task('responsive', ['clean:responsive'], function () {
       // }],
       // Resize all PNG images to be retina ready
       'slyn.jpg': [{
-        width: 200,
+        width: 150,
       }, {
-        width: 200 * 2,
+        width: 150 * 2,
         rename: { suffix: '-2x' },
       }],
     }, {
