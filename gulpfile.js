@@ -144,6 +144,10 @@ gulp.task('responsive', ['clean:responsive'], function () {
         width: 150 * 2,
         rename: { suffix: '-2x' },
       }],
+
+      'chalkboard.jpg': [{
+        width: 1920,
+      }],
     }, {
       // Global configuration for all images
       // The output quality for JPEG, WebP and TIFF output formats

@@ -9,7 +9,8 @@
     "src/**/*",
     "img/**/*",
     "bower.json",
-    "index-styles.html"
+    "index-styles.html",
+    "fav/**/*"
   ],
   "includeDependencies": [
     "bower_components/webcomponentsjs/webcomponents-lite.min.js"
