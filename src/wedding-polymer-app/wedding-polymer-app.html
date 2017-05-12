@@ -33,6 +33,9 @@
 							<li class="nav-li" id="when-where">
 								<a class="nav-a" href="/when-where"><span>WHEN &AMP; WHERE</span></a>
 							</li>
+							<li class="nav-li" id="whos-who">
+								<a class="nav-a" href="/whos-who"><span>WHO&apos;S WHO</span></a>
+							</li>
 							<li class="nav-li" id="registry">
 								<a class="nav-a" href="/registry"><span>REGISTRY</span></a>
 							</li>
@@ -46,6 +49,10 @@
 			<div class="content">
 
 				<iron-pages selected="{{routeData.page}}" attr-for-selected="id" fallback-selection="our-story">
+					
+					<!-- *********************************************** -->
+					<!-- ***************OUR STORY SECTION*************** -->
+					<!-- *********************************************** -->
 					<div id="our-story" class="ipage">
 						<section class="colorpanel our-story"><h2 class="section-title">OUR STORY</h2></section>
 						<section class="colorpanel orange">
@@ -85,6 +92,10 @@
 							<span>Website by Chris Murone</span>
 						</section>
 					</div>
+
+					<!-- ************************************************ -->
+					<!-- ***************WHEN-WHERE SECTION*************** -->
+					<!-- ************************************************ -->
 					<div id="when-where" class="ipage">
 						<section class="colorpanel date"><h2 class="section-title">SEPTEMBER 23, 2017</h2></section>
 						<section class="colorpanel city">
@@ -104,9 +115,6 @@
 							<h1 class="">Accommodations</h1>
 							<span style="font-size: 2em; ">We have arranged group rates at hotels in Grove City, PA.</span>
 
-							<!-- ********************************************** -->
-							<!-- ENABLE THIS ONCE WE HAVE GROUP RATES AT HOTELS -->
-							<!-- ********************************************** -->
 							<h3 class="">A group rate is available at:</h3>
 							<div class="hotel-wrap">								
 								<div class="hotel holiday">
@@ -130,13 +138,21 @@
 							</div>
 
 						</section>
-						
-
-
-						
-						
-
 					</div>
+
+					<!-- ************************************************ -->
+					<!-- ****************WHOS-WHO SECTION**************** -->
+					<!-- ************************************************ -->
+					<div id="whos-who" class="ipage">
+						<section class="colorpanel bridesmaids"><h2 class="section-title">BRIDESMAIDS</h2></section>
+						<section class="colorpanel groomsmen"><h2 class="section-title">GROOMSMEN</h2></section>
+						<section class="colorpanel family"><h2 class="section-title">FAMILY</h2></section>
+						<section class="colorpanel the-rest"><h2 class="section-title">THE REST OF THE PARTY</h2></section>
+					</div>
+
+					<!-- ********************************************** -->
+					<!-- ***************REGISTRY SECTION*************** -->
+					<!-- ********************************************** -->
 					<div id="registry" class="ipage colorpanel" style="background-color:darkgray; height: calc(100vh - 3em);">
 						<h2 style="color:white">REGISTRY</h2>
 						<h3 style="color:lightgray">Coming Soon</h3>
@@ -147,6 +163,10 @@
 						</a> -->
 							
 					</div>
+
+					<!-- ********************************************** -->
+					<!-- *****************RSVP SECTION***************** -->
+					<!-- ********************************************** -->
 					<div id="rsvp" class="ipage colorpanel" style="background-color: lightgray; height:calc(100vh - 3em);">
 						<h2 style="color:white">RSVP</h2>
 						<h3 style="color:black">Online RSVP form will be available once invitations are sent.</h3>
