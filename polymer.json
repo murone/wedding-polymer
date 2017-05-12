@@ -12,7 +12,7 @@
     "index-styles.html",
     "fav/**/*"
   ],
-  "includeDependencies": [
+  "extraDependencies": [
     "bower_components/webcomponentsjs/webcomponents-lite.min.js"
   ]
 }

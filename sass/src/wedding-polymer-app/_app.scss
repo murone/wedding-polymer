@@ -284,19 +284,56 @@ iron-pages {
 	flex-direction: column;
 	font-size: 1.2em;
 	margin: 0;
-	min-width: 20em;
+	width: 25%;
+	min-width: 100%;
 	align-items: center;
 	justify-content: center;
 }
-
-
+.hotel p{
+	width: 100%;
+	margin-bottom: -16px;
+	transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
 paper-icon-button{
 	color: rgb(82,81,86);
 	width: 5em;
 	height: 5em;
 	--paper-icon-button-ink-color: white;
+	transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
 }
-
+.hotel-link paper-icon-button{
+	margin: 16px;
+	transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+.hotel-link:hover > paper-icon-button{
+	transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+	margin: 0px;
+	width: 6em;
+	height: 6em;
+}
+.hotel-link:hover ~ .venue{
+	transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+	margin-bottom: 0px;
+}
+/*.hotel-link:hover ~ p{
+	width: 100%;
+	margin-bottom: 0em;
+}*/
 
 /*a paper-icon-button,
 a:active paper-icon-button,
@@ -458,6 +495,12 @@ a:visited paper-icon-button {
 	/*//////////////WHEN-WHERE-CONTENT//////////////*/
 	.date{
 		height: calc(100vh - 6em);
+	}
+	.hotel{
+		min-width: 20em;
+	}
+	.hotel p{
+		width: 100%;
 	}
 	/*//////////////FOOTER-CONTENT//////////////*/
 	.footer{
