@@ -341,6 +341,19 @@ a:visited paper-icon-button {
 	color: #000000;
 }*/
 
+/*/////////////REGISTRY-CONTENT/////////////*/
+.registry-link {
+	width: 50em;
+}
+
+.registry-link paper-icon-button{
+	width: 50em;
+    --paper-icon-button-ink-color: var(--paper-indigo-500);
+  }
+.registry-link paper-icon-button:hover {
+	background-color: rgba(255,255,255, 0.3);
+	color: white;
+}
 
 /*//////////////FOOTER-CONTENT//////////////*/
 .footer{
