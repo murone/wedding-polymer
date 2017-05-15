@@ -105,14 +105,15 @@ gulp.task('default', function(cb) {
 });
 
 gulp.task('imagemin', ['clean:imagemin'], function() {
-    gulp.src('./' + config.resImages + '/*')
+    gulp.src('./' + config.resImages + '/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest('./' + config.imageDest))
 });
 
-gulp.task('responsive', ['clean:responsive'], function () {
+gulp.task('responsive', ['clean:responsive', 'responsive-people'], function () {
   return gulp.src(config.rawImages + '/*.{png,jpg}')
-    .pipe(responsive({
+    .pipe(
+      responsive({
       // Resize all JPG images to five different sizes: 400, 810, 1280, 1920, and original size for 2x screens.
       'bg-*.jpg': [{
         width: 400,
@@ -130,20 +131,40 @@ gulp.task('responsive', ['clean:responsive'], function () {
         // Compress, strip metadata, and rename original image
         rename: { suffix: '-original' },
       }],
-      // Resize all PNG images to be retina ready
-      // '*.png': [{
-      //   width: 250,
-      // }, {
-      //   width: 250 * 2,
-      //   rename: { suffix: '@2x' },
-      // }],
-      // Resize all PNG images to be retina ready
       'slyn.jpg': [{
         width: 150,
       }, {
         width: 150 * 2,
         rename: { suffix: '-2x' },
       }],
+    }, {
+      // Global configuration for all images
+      // The output quality for JPEG, WebP and TIFF output formats
+      quality: 70,
+      // Use progressive (interlace) scan for JPEG and PNG output
+      progressive: true,
+      // Strip all metadata
+      withMetadata: false,
+      errorOnUnusedConfig:false,
+      errorOnUnusedImage:false
+    })
+    )
+    .pipe(gulp.dest('./' + config.resImages));
+});
+
+gulp.task('responsive-people', function () {
+  return gulp.src(config.rawImages + '/people/*.{png,jpg}')
+    .pipe(
+      responsive({
+      // Resize all JPG images to five different sizes: 400, 810, 1280, 1920, and original size for 2x screens.
+      '*.jpg': [{
+        width: 200,
+      }, 
+      // {
+      //   width: 200 * 2,
+      //   rename: { suffix: '-2x' },
+      // }
+      ],
 
       // 'chalkboard.jpg': [{
       //   width: 1920,
@@ -156,8 +177,11 @@ gulp.task('responsive', ['clean:responsive'], function () {
       progressive: true,
       // Strip all metadata
       withMetadata: false,
-    }))
-    .pipe(gulp.dest('./' + config.resImages));
+      errorOnUnusedConfig:false,
+      errorOnUnusedImage:false
+    })
+    )
+    .pipe(gulp.dest('./' + config.resImages + '/people'));
 });
 
 gulp.task('polybuild', shell.task([

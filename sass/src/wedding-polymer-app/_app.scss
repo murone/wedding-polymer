@@ -24,7 +24,7 @@ paper-header-panel {
 	width: 100%;
 }
 .paper-header.tall {
-	height: 8em;
+	height: 10em;
 }
 
 
@@ -50,6 +50,7 @@ h1{
 	letter-spacing: .2em;
 	font-size: 1.25em;
 	box-sizing: border-box;
+	text-align: center;
 }
 .heading-wrap{
 	display: flex;
@@ -86,14 +87,14 @@ h1{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 5em;
+	height: 6em;
 	width: 100%;
 }
 .nav-ul{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 5em;
+	height: 6em;
 	list-style: none;
 	line-height: 100%;
 	margin: 0;
@@ -160,6 +161,19 @@ h3{
 	text-align: center;
 }
 
+h4{
+	font-family: 'Open Sans', sans-serif;
+	font-variant: small-caps;
+	font-weight: 300;
+	letter-spacing: .2em;
+	font-size: 1.5em;
+	color: white;
+	text-align: center;
+	margin-bottom: 0;
+	width: 75%;
+	text-align: center;
+}
+
 iron-pages {
 	width: 100%;
 }
@@ -186,7 +200,7 @@ iron-pages {
 	text-align: center;
 }
 .colorpanel p{
-	width: 50%;
+	width: 100%;
 	text-align: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -206,7 +220,7 @@ iron-pages {
 	height: calc(100vh - 8em);
 }
 .orange{
-	padding: 5em;
+	padding: 2em;
 }
 .red{
 	height: calc(100vh - 3em);
@@ -253,6 +267,9 @@ iron-pages {
 	margin: 0;
 	top: 45%;
 }
+.front-link{
+	z-index: 100;
+}
 .feature.map {
 	pointer-events: none;
 	height:100%;
@@ -298,7 +315,7 @@ iron-pages {
     -o-transition: all .5s ease-in-out;
 }
 paper-icon-button{
-	color: rgb(82,81,86);
+	color: #AAF0D1;
 	width: 5em;
 	height: 5em;
 	--paper-icon-button-ink-color: white;
@@ -330,22 +347,18 @@ paper-icon-button{
     -o-transition: all .5s ease-in-out;
 	margin-bottom: 0px;
 }
-/*.hotel-link:hover ~ p{
-	width: 100%;
-	margin-bottom: 0em;
-}*/
 
-/*a paper-icon-button,
-a:active paper-icon-button,
-a:visited paper-icon-button {
-	color: #000000;
-}*/
 
 /*/////////////WHOS-WHO-CONTENT/////////////*/
 
 .bridesmaids{
 	padding: 5%;
 	background-color: darkgray;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 .groomsmen{
 	padding: 5%;
@@ -359,22 +372,106 @@ a:visited paper-icon-button {
 	padding: 5%;
 	background-color: lightgray;
 }
+.people{
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+}
+.person-wrap, .person-photo-wrap, .letter-div, .person-img, .person-role {
+	max-width: 100%;
+	width: 200px;
+}
+.person-wrap{
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	margin: 1em;
+}
 
+.person-photo-wrap{
+	position: relative;
+	height: 200px;
+	width: 200px;
+}
+.letter-div, .person-img{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+.person-img{
+}
+div.letter-div{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 100;
+	font-size: 8em;
+	color: white;
+	background-color: gray;
+	opacity: .5;
+	transition: all .5s ease-in-out;
+}
+span.letter-div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 101;
+	font-size: 8em;
+	color: #AAF0D1;
+	opacity: 1;
+	transition: all .5s ease-in-out;
+}
+.person-photo-wrap:hover > .letter-div{
+	opacity: 0;
+}
+
+
+.person-name, .person-role{
+	width: 200px;
+	text-align: center;
+	font-size: 1.5em;
+	padding: .1em;
+}
+.person-name{
+	font-size: 1.3em;
+}
+.person-role{
+	font-size: 1em;
+}
 
 
 /*/////////////REGISTRY-CONTENT/////////////*/
+
 .registry-link {
-	width: 50em;
+	padding-bottom: 5em;
 }
 
 .registry-link paper-icon-button{
-	width: 50em;
+	width: 500px;
+	height: 208.25px;
     --paper-icon-button-ink-color: var(--paper-indigo-500);
   }
 .registry-link paper-icon-button:hover {
 	background-color: rgba(255,255,255, 0.3);
 	color: white;
+	width: 600px;
 }
+.zola-logo{
+	width: 166.6666666px;
+	height: 100px;
+}
+.zola-logo:hover{
+	width: 200;
+	height: 120px;
+}
+
 
 /*//////////////FOOTER-CONTENT//////////////*/
 .footer{
@@ -402,6 +499,8 @@ a:visited paper-icon-button {
 		padding: 8% 2%;
 	}
 }
+
+
 
  
 /*//////////////////////////////////////////////////////*/
@@ -493,7 +592,9 @@ a:visited paper-icon-button {
 	h3{
 		font-size: 3em;
 	}
-
+	h4{
+		text-align: left;
+	}
 	.content {
 	}
 	.colorpanel{
@@ -510,7 +611,8 @@ a:visited paper-icon-button {
 		text-align: center;
 	}
 	.colorpanel p{
-		width: 50%;
+		width: 75%;
+		max-width: 1200px;
 		text-align: center;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -522,6 +624,10 @@ a:visited paper-icon-button {
 	/*//////////////OUR-STORY-CONTENT//////////////*/
 	.our-story{
 		height: calc(100vh - 6em);
+	}
+
+	.orange{
+		padding: 5em;
 	}
 
 
@@ -542,6 +648,10 @@ a:visited paper-icon-button {
 	}
 
 }
+
+
+
+
 
 @media screen and (min-width: 810px) and (max-width: 1280px) and (orientation: landscape){
 	/*Responsive Images*/
@@ -686,4 +796,13 @@ a:visited paper-icon-button {
 		background-image: url(../../img/bg-923-original.jpg);
 	}
 
+}
+
+/*/////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////*/
+/*///////////////////////UTILITY///////////////////////*/ 
+/*/////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////*/
+.full-width{
+	width: 100%;
 }
