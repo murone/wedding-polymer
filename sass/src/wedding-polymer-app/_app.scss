@@ -449,19 +449,32 @@ span.letter-div {
 
 /*/////////////REGISTRY-CONTENT/////////////*/
 
+.links-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+}
 .registry-link {
-	padding-bottom: 5em;
+	padding: 2em 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30%;
+	border-radius: 20%;
+	z-index: 100;
+	/*margin: 0 5em;*/
+	box-sizing: content-box;
 }
 
-.registry-link paper-icon-button{
-	width: 500px;
-	height: 208.25px;
-    --paper-icon-button-ink-color: var(--paper-indigo-500);
-  }
-.registry-link paper-icon-button:hover {
+.registry-link img{
+	width: 75%;
+ }
+.registry-link:hover {
 	background-color: rgba(255,255,255, 0.3);
 	color: white;
-	width: 600px;
+	width: 33%;
 }
 .zola-logo{
 	width: 166.6666666px;
