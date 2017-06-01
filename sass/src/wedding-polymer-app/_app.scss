@@ -217,300 +217,6 @@ iron-pages {
 	justify-content: center;
 }
 
-/*//////////////OUR-STORY-CONTENT//////////////*/
-.our-story{
-	background-image: url(../../img/bg-our-story-hd.jpg);
-	height: calc(100vh - 8em);
-}
-.orange{
-	padding: 2em;
-}
-.red{
-	height: calc(100vh - 3em);
-	background-image: url(../../img/bg-he-proposed-hd.jpg); 
-}
-.yellow{
-	height: calc(100vh - 3em);
-	background-image: url(../../img/bg-she-said-yes-hd.jpg);
-}
-.break{
-	padding: 5%;
-}
-.break h2{
-	color: rgb(124,124,132);
-}
-
-
-/*//////////////WHEN-WHERE-CONTENT//////////////*/
-.date{
-	height: calc(100vh - 8em);
-	/*background-color: lightgray;*/
-	background-image: url(../../img/bg-923-hd.jpg);
-}
-.city{
-	height: calc(100vh);
-	background-color: darkgray;
-	pointer-events: none;
-	position: relative;
-}
-.event{
-	padding: 5%;
-}
-.venue{
-	font-size: 1.2em;
-}
-.nw{
-	position: absolute;
-	z-index: 100;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	margin: 0;
-	top: 45%;
-}
-.front-link{
-	z-index: 100;
-}
-.feature.map {
-	pointer-events: none;
-	height:100%;
-	width: 100%;
-	iframe {
-		height:100%;
-		width:100%;
-		border:0;
-		filter: brightness(75%) grayscale(100%);
-		-webkit-backface-visibility: hidden;  /* Fix for transition flickering */
-		pointer-events: none;
-	}
-}
-.accommodations{
-	padding: 5%;
-	background-color: lightgray;
-}
-.hotel-wrap{
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	width: 100%;
-}
-.hotel{
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	font-size: 1.2em;
-	margin: 0;
-	width: 25%;
-	min-width: 100%;
-	align-items: center;
-	justify-content: center;
-}
-.hotel p{
-	width: 100%;
-	margin-bottom: -16px;
-	transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-}
-paper-icon-button{
-	color: $mint;
-	width: 5em;
-	height: 5em;
-	--paper-icon-button-ink-color: white;
-	transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-}
-.hotel-link paper-icon-button{
-	margin: 16px;
-	transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-}
-.hotel-link:hover > paper-icon-button{
-	transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-	margin: 0px;
-	width: 6em;
-	height: 6em;
-}
-.hotel-link:hover ~ .venue{
-	transition: all .5s ease-in-out;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-	margin-bottom: 0px;
-}
-
-
-/*/////////////WHOS-WHO-CONTENT/////////////*/
-
-.bridesmaids{
-	padding: 5%;
-	background-color: darkgray;
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-}
-.groomsmen{
-	padding: 5%;
-	background-color: lightgray;
-}
-.family{
-	padding: 5%;
-	background-color: darkgray;
-}
-.the-rest{
-	padding: 5%;
-	background-color: lightgray;
-}
-.people{
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-content: center;
-	justify-content: center;
-}
-.person-wrap, .person-photo-wrap, .letter-div, .person-img, .person-role {
-	max-width: 100%;
-	width: 200px;
-}
-.person-wrap{
-	display: flex;
-	flex-direction: column;
-	height: auto;
-	margin: 1em;
-}
-
-.person-photo-wrap{
-	position: relative;
-	height: 200px;
-	width: 200px;
-}
-.letter-div, .person-img{
-	position: absolute;
-	top:0;
-	left: 0;
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
-}
-.temp{
-	background-color: white;
-}
-div.letter-div{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 100;
-	font-size: 8em;
-	color: white;
-	background-color: gray;
-	opacity: .5;
-	transition: all .5s ease-in-out;
-}
-span.letter-div {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 101;
-	font-size: 8em;
-	color: $mint;
-	opacity: 1;
-	transition: all .5s ease-in-out;
-}
-/*.person-photo-wrap:hover > .letter-div{
-	opacity: 0;
-}*/
-.person-photo-wrap:hover > .temp{
-	opacity: 0;
-}
-
-
-.person-name, .person-role{
-	width: 200px;
-	text-align: center;
-	font-size: 1.5em;
-	padding: .1em;
-}
-.person-name{
-	font-size: 1.3em;
-}
-.person-role{
-	font-size: 1em;
-}
-
-
-/*/////////////REGISTRY-CONTENT/////////////*/
-
-
-.registry{
-	height: calc(100vh - 3em);
-	background-image: url(../../img/bg-registry-hd.jpg);
-	margin-bottom: 4em;
-}
-
-.links-wrap {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	width: 100%;
-}
-.registry-link {
-	padding: 2em 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 350px;
-	border-radius: 20%;
-	z-index: 100;
-	box-sizing: content-box;
-}
-
-.registry-link img{
-	width: 100%;
- }
-.registry-link:hover {
-	background-color: rgba(255,255,255, 0.3);
-	color: white;
-	width: 475px;
-}
-.zola-logo{
-	width: 166.6666666px;
-	height: 100px;
-}
-.zola-logo:hover{
-	width: 200;
-	height: 120px;
-}
-
-
-/*//////////////FOOTER-CONTENT//////////////*/
-.footer{
-	padding: 10% 5%;
-}
-.footer h2{
-	color: rgb(124,124,132);
-	width: 100%;
-	margin: 0;
-}
-
-
 
 
 /*//////////////////////////////////////////////////////*/
@@ -521,15 +227,6 @@ span.letter-div {
 @media screen and (max-width: 400px){
 	h2{
 		font-size: 2em;
-	}
-	.footer{
-		padding: 8% 2%;
-	}
-	.registry-link {
-		width: 90%;
-	}
-	.registry-link:hover {
-		width: 95%;
 	}
 }
 
@@ -652,38 +349,6 @@ span.letter-div {
 		background-position: center bottom;
 	}
 
-
-
-	/*//////////////OUR-STORY-CONTENT//////////////*/
-	.our-story{
-		height: calc(100vh - 6em);
-	}
-
-	.orange{
-		padding: 5em;
-	}
-
-
-
-	/*//////////////WHEN-WHERE-CONTENT//////////////*/
-	.date{
-		height: calc(100vh - 6em);
-	}
-	.hotel{
-		min-width: 20em;
-	}
-	.hotel p{
-		width: 100%;
-	}
-	/*//////////////WHEN-WHERE-CONTENT//////////////*/
-	.registry{
-		height: calc(100vh - 6em);
-	}
-	/*//////////////FOOTER-CONTENT//////////////*/
-	.footer{
-		padding: 2%;
-	}
-
 }
 
 
@@ -691,126 +356,28 @@ span.letter-div {
 
 
 @media screen and (min-width: 810px) and (max-width: 1280px) and (orientation: landscape){
-	/*Responsive Images*/
-	.our-story{
-		background-image: url(../../img/bg-our-story-laptop.jpg);
-	}
-	.red{
-		background-image: url(../../img/bg-he-proposed-laptop.jpg); 
-	}
-	.yellow{
-		background-image: url(../../img/bg-she-said-yes-laptop.jpg);
-	}
 
-
-	/*//////////////WHEN-WHERE-CONTENT//////////////*/
-	.date{
-		background-image: url(../../img/bg-923-laptop.jpg);
-	}
-
-
-	/*//////////////REGISTRY-CONTENT//////////////*/
-	.registry{
-		background-image: url(../../img/bg-registry-laptop.jpg);
-	}
 }
 
 @media screen and (min-width: 400px) and (max-width: 810px) and (orientation: landscape){
 	/*Responsive Images*/
-	.our-story{
-		background-image: url(../../img/bg-our-story-tablet.jpg);
-	}
-	.red{
-		background-image: url(../../img/bg-he-proposed-tablet.jpg); 
-	}
-	.yellow{
-		background-image: url(../../img/bg-she-said-yes-tablet.jpg);
-	}
 
-
-	/*//////////////WHEN-WHERE-CONTENT//////////////*/
-	.date{
-		background-image: url(../../img/bg-923-tablet.jpg);
-	}
-
-
-	/*//////////////REGISTRY-CONTENT//////////////*/
-	.registry{
-		background-image: url(../../img/bg-registry-tablet.jpg);
-	}
 }
 
 @media screen and (max-width: 810px) and (max-height: 540px) and (orientation: portrait){
 	/*Responsive Images*/
-	.our-story{
-		background-image: url(../../img/bg-our-story-tablet.jpg);
-	}
-	.red{
-		background-image: url(../../img/bg-he-proposed-tablet.jpg); 
-	}
-	.yellow{
-		background-image: url(../../img/bg-she-said-yes-tablet.jpg);
-	}
 
-
-	/*//////////////WHEN-WHERE-CONTENT//////////////*/
-	.date{
-		background-image: url(../../img/bg-923-tablet.jpg);
-	}
-
-
-	/*//////////////REGISTRY-CONTENT//////////////*/
-	.registry{
-		background-image: url(../../img/bg-registry-tablet.jpg);
-	}
 }
 
 @media screen and (max-width: 1280px) and (max-height: 853px) and (orientation: portrait){
 	/*Responsive Images*/
-	.our-story{
-		background-image: url(../../img/bg-our-story-tablet.jpg);
-	}
-	.red{
-		background-image: url(../../img/bg-he-proposed-tablet.jpg); 
-	}
-	.yellow{
-		background-image: url(../../img/bg-she-said-yes-tablet.jpg);
-	}
 
-
-	/*//////////////WHEN-WHERE-CONTENT//////////////*/
-	.date{
-		background-image: url(../../img/bg-923-tablet.jpg);
-	}
-
-
-	/*//////////////REGISTRY-CONTENT//////////////*/
-	.registry{
-		background-image: url(../../img/bg-registry-tablet.jpg);
-	}
 }
 
 @media screen and (min-width: 1921px){
 	/*Responsive Images*/
-	.our-story{
-		background-image: url(../../img/bg-our-story-original.jpg);
-	}
-	.red{
-		background-image: url(../../img/bg-he-proposed-original.jpg); 
-	}
-	.yellow{
-		background-image: url(../../img/bg-she-said-yes-original.jpg);
-	}
 
-	/*//////////////WHEN-WHERE-CONTENT//////////////*/
-	.date{
-		background-image: url(../../img/bg-923-original.jpg);
-	}
 
-	/*//////////////REGISTRY-CONTENT//////////////*/
-	.registry{
-		background-image: url(../../img/bg-registry-original.jpg);
-	}
 }
 
 /* ---------------------------------------------------------- */
@@ -845,35 +412,10 @@ span.letter-div {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	/*Responsive Images*/
-	.our-story{
-		background-image: url(../../img/bg-our-story-original.jpg);
-	}
-	.red{
-		background-image: url(../../img/bg-he-proposed-original.jpg); 
-	}
-	.yellow{
-		background-image: url(../../img/bg-she-said-yes-original.jpg);
-	}
-
-
-	/*//////////////WHEN-WHERE-CONTENT//////////////*/
-	.date{
-		background-image: url(../../img/bg-923-original.jpg);
-	}
-
 
 	/*//////////////WHEN-WHERE-CONTENT//////////////*/
 	.registry{
 		background-image: url(../../img/bg-registry-original.jpg);
 	}
 
-}
-
-/*/////////////////////////////////////////////////////*/
-/*/////////////////////////////////////////////////////*/
-/*///////////////////////UTILITY///////////////////////*/ 
-/*/////////////////////////////////////////////////////*/
-/*/////////////////////////////////////////////////////*/
-.full-width{
-	width: 100%;
 }
