@@ -7,6 +7,9 @@
 
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/iron-icons/maps-icons.html">
+<link rel="import" href="../../bower_components/px-polymer-font-awesome/px-polymer-font-awesome.html">
+
+
 
 <!-- <script type="text/javascript" src="http://app.rsvpify.com/embed/104583"></script>
 <script type="text/javascript" src="http://app.rsvpify.com/js/iframeResizer.min.js"></script> -->
@@ -19,11 +22,12 @@
 		<app-location route="{{route}}"></app-location>
 		<app-route route="{{route}}" pattern="/:page" data="{{routeData}}"></app-route>
 
-		<paper-header-panel mode="waterfall-tall" class="cyan header-panel" tall-class="tall">
+		<paper-header-panel id="hp" mode="waterfall-tall" class="cyan header-panel" tall-class="tall">
 			<div class="paper-header">
 				<header class="full-height">
 					<div class="heading-wrap">
-						<a href="/"><h1 class="main-title">CHRIS &amp; ASHLEY</h1></a>
+						<!-- <a href="/"><h1 class="main-title">CHRIS + ASHLEY</h1></a> -->
+						<a href="/"><h1 class="main-title">CHRIS&nbsp;<iron-icon class="header-icon" icon="fa:fa-heart">+</iron-icon>&nbsp;ASHLEY</h1></a>
 					</div>
 					<nav class="main-nav">
 						<ul class="nav-ul">
@@ -101,7 +105,7 @@
 						<section class="colorpanel city" >
 							<div class="feature map" >
 								<h2 class="section-title nw">NEW WILMINGTON</h2>
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077768.9284143746!2d-82.60805864565134!3d41.12068987928957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883396a9e3c02259%3A0x9f4bfaa49a4ec073!2sFive+Fillies+Farm!5e0!3m2!1sen!2sus!4v1478405522360" frameborder="0" style="border:0" allowfullscreen></iframe>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077768.9284143746!2d-82.60805864565134!3d41.12068987928957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883396a9e3c02259%3A0x9f4bfaa49a4ec073!2sFive+Fillies+Farm!5e0!3m2!1sen!2sus!4v1478405522360&key=AIzaSyCqTEL3RHAlwXcSArT0GFwabPVkZy5fBnQ" frameborder="0" style="border:0" allowfullscreen></iframe>
 							</div> 
 							
 						</section>
@@ -161,7 +165,8 @@
 										<div class="person-photo-wrap">
 											<div class="letter-div"></div>
 											<span class="letter-div">{{person.initials}}</span>
-											<img class="person-img" src$="../../img/people/{{person.pic}}.jpg">
+											<!-- <img class="person-img" src$="../../img/people/{{person.pic}}.jpg"> -->
+											<div class="person-img temp" ></div>
 										</div>
 										<span class="person-name">{{person.name}}</span>
 										<span class="person-role"><em>{{person.role}}</em></span>
@@ -177,7 +182,8 @@
 										<div class="person-photo-wrap">
 											<div class="letter-div"></div>
 											<span class="letter-div">{{person.initials}}</span>
-											<img class="person-img" src$="../../img/people/{{person.pic}}.jpg">
+											<!-- <img class="person-img" src$="../../img/people/{{person.pic}}.jpg"> -->
+											<div class="person-img temp" ></div>
 										</div>
 										<span class="person-name">{{person.name}}</span>
 										<span class="person-role"><em>{{person.role}}</em></span>
@@ -193,7 +199,8 @@
 										<div class="person-photo-wrap">
 											<div class="letter-div"></div>
 											<span class="letter-div">{{person.initials}}</span>
-											<img class="person-img" src$="../../img/people/{{person.pic}}.jpg">
+											<!-- <img class="person-img" src$="../../img/people/{{person.pic}}.jpg"> -->
+											<div class="person-img temp" ></div>
 										</div>
 										<span class="person-name">{{person.name}}</span>
 										<span class="person-role"><em>{{person.role}}</em></span>
@@ -209,7 +216,8 @@
 										<div class="person-photo-wrap">
 											<div class="letter-div"></div>
 											<span class="letter-div">{{person.initials}}</span>
-											<img class="person-img" src$="../../img/people/{{person.pic}}.jpg">
+											<!-- <img class="person-img" src$="../../img/people/{{person.pic}}.jpg"> -->
+											<div class="person-img temp" ></div>
 										</div>
 										<span class="person-name">{{person.name}}</span>
 										<span class="person-role"><em>{{person.role}}</em></span>
@@ -222,8 +230,10 @@
 					<!-- ********************************************** -->
 					<!-- ***************REGISTRY SECTION*************** -->
 					<!-- ********************************************** -->
-					<div id="registry" class="ipage colorpanel" style="background-color:darkgray;">
-						<h2 style="color:white">REGISTRY</h2>
+					<div id="registry" class="ipage">
+						<section class="colorpanel registry">
+							<h2 style="color:white">REGISTRY</h2>
+						</section>
 						<h1 class="">We are registered at the following locations:</h1>
 						<div class="links-wrap">
 							<a class="registry-link" href="https://www.bedbathandbeyond.com:443/store/giftregistry/view_registry_guest.jsp?registryId=544441282&eventType=Wedding&pwsurl=">
@@ -244,12 +254,12 @@
 					<!-- *****************RSVP SECTION***************** -->
 					<!-- ********************************************** -->
 					<div id="rsvp" class="ipage colorpanel" style="background-color: lightgray; height:calc(100vh - 3em);">
-						<section class="colorpanel bridesmaids">
+<!-- 						<section class="colorpanel bridesmaids">
 							<h2 class="section-title">Dress Code</h2>
-						</section>
+						</section> -->
 						<h2 style="color:white">RSVP</h2>
 						<h3 style="color:black">Online RSVP form will be available once invitations are sent.</h3>
-						<section class="colorpanel bridesmaids">
+						<!-- <section class="colorpanel bridesmaids">
 							<h2 class="section-title">FAQ</h2>
 							<ul>
 								<li>Checks addressed to</li>
@@ -259,7 +269,7 @@
 								<li>Registry</li>
 								<li>Transportation</li>
 							</ul>
-						</section>
+						</section> -->
 						<!-- <div>
 							<script type="text/javascript">iFrameResize({autoResize: true,heightCalculationMethod: 'max',enablePublicMethods: true}, "#RSVPifyIFrame");</script>
 						</div> -->
@@ -427,6 +437,9 @@
 					}
 				},
 			},
+			observers: [
+				'_onRouteChanged(route.*)'
+			],
 
 			ready: function(){
 				if (this.route.path == "/"){
@@ -447,6 +460,10 @@
 
 
 			},
+			_onRouteChanged: function(newValue) {
+				// console.log(this);
+				// this.$('hp')._scroll(0,0);
+			}
 
 		});
 	</script>

@@ -10,7 +10,8 @@
     "img/**/*",
     "bower.json",
     "index-styles.html",
-    "fav/**/*"
+    "fav/**/*",
+    "svg/**/*"
   ],
   "extraDependencies": [
     "bower_components/webcomponentsjs/webcomponents-lite.min.js"
