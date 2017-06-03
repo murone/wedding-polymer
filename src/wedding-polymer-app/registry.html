@@ -1,0 +1,37 @@
+<!-- <link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+<link rel="import" href="./registry-styles.html">
+
+<dom-module id="wed-registry">
+	<template>
+		
+		<style include="registry-styles"></style>
+
+		<section class="colorpanel registry">
+			<h2 style="color:white">REGISTRY</h2>
+		</section>
+		<h1 class="">We are registered at the following locations:</h1>
+		<div class="links-wrap">
+			<a class="registry-link" href="https://www.bedbathandbeyond.com:443/store/giftregistry/view_registry_guest.jsp?registryId=54444128`2&eventType=Wedding&pwsurl=">
+			<img src="../../svg/bbb.png"/>
+			</a>
+			<a class="registry-link" href="https://www.bedbathandbeyond.com:443/store/giftregistry/view_registry_guest.jsp?registryId=544441282&eventType=Wedding&pwsurl=">
+				<img src="../../svg/ama.png"/>
+			</a>
+		</div>
+		<!-- <h3 style="color:lightgray">Coming Soon</h3> -->
+		<a class="zola-registry-embed" href="https://www.zola.com/registry/murone" data-registry-key="murone">Our Zola Wedding Registry</a><script>!function(e,t,n){var s,a=e.getElementsByTagName(t)[0];e.getElementById(n)||(s=e.createElement(t),s.id=n,s.async=!0,s.src="https://widget.zola.com/js/widget.js",a.parentNode.insertBefore(s,a))}(document,"script","zola-wjs");</script>
+
+	</template>
+
+	<script>
+		Polymer({
+
+			is: 'wed-registry',
+
+			properties: {
+			},
+			observers: [
+			]
+		});
+	</script>
+</dom-module>

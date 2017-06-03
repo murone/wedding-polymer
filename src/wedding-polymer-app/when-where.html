@@ -1,0 +1,77 @@
+<!-- <link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+<link rel="import" href="./when-where-styles.html">
+
+<dom-module id="when-where">
+	<template>
+		
+		<style include="when-where-styles"></style>
+
+		<section class="colorpanel date"><h2 class="section-title">SEPTEMBER 23, 2017</h2></section>
+		<section class="colorpanel city" >
+			<div class="feature map" >
+				<h2 class="section-title nw">NEW WILMINGTON</h2>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3077768.9284143746!2d-82.60805864565134!3d41.12068987928957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883396a9e3c02259%3A0x9f4bfaa49a4ec073!2sFive+Fillies+Farm!5e0!3m2!1sen!2sus!4v1478405522360&key=AIzaSyCqTEL3RHAlwXcSArT0GFwabPVkZy5fBnQ" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div> 
+			
+		</section>
+		<section class="colorpanel event">
+			<h1 class="full-width">Ceremony and Reception</h1>
+			<h3 class="">Saturday, September 23, 2017<br>4:00 - 10:30 PM</h3>
+			<p class="venue"><em>Five Fillies Farm</em><br>3207 PA-208<br>New Wilmington, PA 16142</p>
+			<a href="https://www.google.com/maps/place/Five+Fillies+Farm/@41.1208165,-80.36669,213m/data=!3m1!1e3" tabindex="1"  target="_blank" ><paper-icon-button icon="maps:near-me"></paper-icon-button></a>
+		</section>
+		<section class="colorpanel dark-gray">
+			<h1 class="full-width">Getting Here</h1>
+			<h4 class="">Driving</h4>
+			<p class="venue">You're gonna want to head towards the crossroads of I-79 and I-80. From there the hotels are about 4 miles south, and the venue is 12 miles west.</p>
+			<h4 class="">Flights</h4>
+			<p class="venue">We recommend flying into Pittsburgh International Airport (PIT), but if you happen to find a cheap flight into Youngstown, OH (YNG) that's even closer!</p>
+			<h4 class="">Getting Around</h4>
+			<p class="venue">The closest thing we have to a taxi is hitchinking an amish buggy. Plan accordingly! A round trip shuttle between hotel and venue will be provided, because drinking and driving is bad!</p>
+		</section>
+		<section class="colorpanel accommodations">
+			<h1 class="">Accommodations</h1>
+			<span style="font-size: 2em; ">We have arranged group rates at hotels in Grove City, PA.</span>
+
+			<h3 class="">A group rate is available at:</h3>
+			<div class="hotel-wrap">								
+				<div class="hotel holiday">
+					<p class="venue"><b>Holiday Inn Express Grove City, PA</b><br>4 Holiday Blvd<br>Mercer, PA<br><em>Call: 724-748-5744 Option 0, ask for the "Wedding Rate"</em><br>Corporate Rate Code: 560061264<br><br>or book online:</p>
+					<a class="hotel-link" href="https://www.hiexpress.com/redirect?path=hd&brandCode=ex&localeCode=en&regionCode=1&hotelCode=GVCPA&rateCode=IL4D4&_PMID=99502056&corpNum=100235822&viewfullsite=true" tabindex="-1"  target="_blank" >
+						<paper-icon-button src="../../svg/hi.svg"></paper-icon-button>
+					</a>
+				</div>								
+				<div class="hotel comfort">
+					<p class="venue"><b>Comfort Inn Grove City, PA</b><br>118 Garrett Dr<br>Grove City, PA<br><em>Call: (724) 748-1005, ask for the "Murone / Reichl Wedding" rate</em><br>Group Account: 2980186<br><br>or book online:</p>
+					<a class="hotel-link" href="https://www.choicehotels.com/pennsylvania/grove-city/comfort-inn-hotels/pa448?mc=smgogouscil&cid=Search%7CComfort_Inn%7CUS%7CPennsylvania%7CExact%7CCPC%7CDesktop%7CEN%7CB_G&ag=US%7CPA%7CGrove%20City&pmf=GOOGLE&kw=comfort%20inn%20grove%20city%20pa&gclid=CjwKEAjwutXIBRDV7-SDvdiNsUoSJACIlTql6p5HHrfA7E2aAZr_va6dSxVeOh6EiNlsPhK7-nfgQxoCp7Xw_wcB&gclsrc=aw.ds" tabindex="-1"  target="_blank" >
+						<paper-icon-button src="../../svg/ci.svg"></paper-icon-button>
+					</a>
+				</div>
+				<div class="hotel hilton">
+					<p class="venue"><b>Hampton Inn &amp; Suites Grove City, PA</b><br>4 Holiday Blvd<br>Mercer, PA<br><em>Call: 724-748-5514 Option 0, ask for the "Wedding Rate"</em><br>Corporate Rate Code: 100235822<br><br>or book online:</p>
+					<a class="hotel-link" href="https://secure3.hilton.com/en_US/hp/reservation/book.htm?ctyhocn=GCYPAHX&corporateCode=560061264&from=lnrlink" tabindex="-1"  target="_blank" >
+						<paper-icon-button src="../../svg/hamp.svg"></paper-icon-button>
+					</a>
+				</div>
+			</div>
+
+		</section>
+
+	</template>
+
+	<script>
+		Polymer({
+
+			is: 'when-where',
+
+			properties: {
+				prop1: {
+					type: String,
+					value: 'when-where',
+				}
+			},
+			observers: [
+			]
+		});
+	</script>
+</dom-module>
