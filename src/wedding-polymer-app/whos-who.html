@@ -1,0 +1,252 @@
+<!-- <link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+<link rel="import" href="./whos-who-styles.html">
+
+<dom-module id="whos-who">
+	<template>
+		
+		<style include="whos-who-styles"></style>
+
+		<section class="colorpanel bridesmaids">
+			<h2 class="section-title">BRIDESMAIDS</h2>
+			<div class="people">
+				<template is="dom-repeat" items="{{data.bridesmaids}}" as="person">
+					<div id$="person-{{index}}" class="person-wrap">
+						<div class="person-photo-wrap">
+							<div class="letter-div"></div>
+							<span class="letter-div">{{person.initials}}</span>
+							<!-- <img class="person-img" src$="../../img/people/{{person.pic}}.jpg"> -->
+							<div class="person-img temp" ></div>
+						</div>
+						<span class="person-name">{{person.name}}</span>
+						<span class="person-role"><em>{{person.role}}</em></span>
+					</div>
+				</template>
+			</div>
+		</section>
+		<section class="colorpanel groomsmen">
+			<h2 class="section-title">GROOMSMEN</h2>
+			<div class="people">
+				<template is="dom-repeat" items="{{data.groomsmen}}" as="person">
+					<div id$="person-{{index}}" class="person-wrap">
+						<div class="person-photo-wrap">
+							<div class="letter-div"></div>
+							<span class="letter-div">{{person.initials}}</span>
+							<!-- <img class="person-img" src$="../../img/people/{{person.pic}}.jpg"> -->
+							<div class="person-img temp" ></div>
+						</div>
+						<span class="person-name">{{person.name}}</span>
+						<span class="person-role"><em>{{person.role}}</em></span>
+					</div>
+				</template>
+			</div>
+		</section>
+		<section class="colorpanel family">
+			<h2 class="section-title">FAMILY</h2>
+			<div class="people">
+				<template is="dom-repeat" items="{{data.family}}" as="person">
+					<div id$="person-{{index}}" class="person-wrap">
+						<div class="person-photo-wrap">
+							<div class="letter-div"></div>
+							<span class="letter-div">{{person.initials}}</span>
+							<!-- <img class="person-img" src$="../../img/people/{{person.pic}}.jpg"> -->
+							<div class="person-img temp" ></div>
+						</div>
+						<span class="person-name">{{person.name}}</span>
+						<span class="person-role"><em>{{person.role}}</em></span>
+					</div>
+				</template>
+			</div>
+		</section>
+		<section class="colorpanel the-rest">
+			<h2 class="section-title">THE REST OF THE PARTY</h2>
+			<div class="people">
+				<template is="dom-repeat" items="{{data.rest}}" as="person">
+					<div id$="person-{{index}}" class="person-wrap">
+						<div class="person-photo-wrap">
+							<div class="letter-div"></div>
+							<span class="letter-div">{{person.initials}}</span>
+							<!-- <img class="person-img" src$="../../img/people/{{person.pic}}.jpg"> -->
+							<div class="person-img temp" ></div>
+						</div>
+						<span class="person-name">{{person.name}}</span>
+						<span class="person-role"><em>{{person.role}}</em></span>
+					</div>
+				</template>
+			</div>
+		</section>
+
+	</template>
+
+	<script>
+		Polymer({
+
+			is: 'whos-who',
+
+			properties: {
+				prop1: {
+					type: String,
+					value: 'whos-who',
+				},
+				data: {
+					type: Object,
+					value: {
+						"bridesmaids":[
+							{
+								name: "Jackie Reichl",
+								role: "Maid of Honor",
+								initials: "J",
+								pic: "jr"
+							},
+							{
+								name: "Danielle Paouncic",
+								role: "Maid of Honor",
+								initials: "D",
+								pic: "jr"
+							},
+							{
+								name: "Kayla Maldonado",
+								role: "Bridesmaid",
+								initials: "K",
+								pic: "jr"
+							},
+							{
+								name: "Kyra Englerth",
+								role: "Bridesmaid",
+								initials: "K",
+								pic: "jr"
+							},
+							{
+								name: "Daria Rose",
+								role: "Bridesmaid",
+								initials: "D",
+								pic: "jr"
+							},
+							{
+								name: "Ashley Phelps",
+								role: "Bridesmaid",
+								initials: "A",
+								pic: "jr"
+							},
+							{
+								name: "Brittany Morgan",
+								role: "Bridesmaid",
+								initials: "B",
+								pic: "jr"
+							}
+						],
+						"groomsmen":[
+							{
+								name: "Brian Murone",
+								role: "Best Man",
+								initials: "B",
+								pic: "jr"
+							},
+							{
+								name: "Tom Bachmann",
+								role: "Best Man",
+								initials: "T",
+								pic: "jr"
+							},
+							{
+								name: "George Maldonado",
+								role: "Groomsman",
+								initials: "G",
+								pic: "jr"
+							},
+							{
+								name: "Trevor Reed",
+								role: "Groomsman",
+								initials: "T",
+								pic: "jr"
+							},
+							{
+								name: "Josh Morgan",
+								role: "Groomsman",
+								initials: "J",
+								pic: "jr"
+							},
+							{
+								name: "Logan Williams",
+								role: "Groomsman",
+								initials: "L",
+								pic: "jr"
+							}
+						],
+						"family":[
+							{
+								name: "Mr. and Mrs. Samuel & Linda Reichl",
+								role: "Father / Step-mother of the Bride",
+								initials: "R",
+								pic: "jr"
+							},
+							{
+								name: "Ms. Suzanne Reichl",
+								role: "Mother of the Bride",
+								initials: "S",
+								pic: "jr"
+							},
+							{
+								name: "Mr. and Mrs. David and Linda Murone",
+								role: "Parents of the Groom",
+								initials: "M",
+								pic: "jr"
+							},
+							{
+								name: "Mr. and Mrs. Ed and Helen Battista",
+								role: "Grandparents of the Bride",
+								initials: "B",
+								pic: "jr"
+							},
+							{
+								name: "Mrs. Roseann Lubold",
+								role: "Grandmother of the Groom",
+								initials: "R",
+								pic: "jr"
+							},
+							{
+								name: "Mr. and Mrs. Richard and Joan Lubold",
+								role: "Grandfather of the Groom",
+								initials: "L",
+								pic: "jr"
+							}
+						],
+						"rest":[
+							{
+								name: "John Locke",
+								role: "Master of Ceremonies",
+								initials: "J",
+								pic: "jr"
+							},
+							{
+								name: "Yvonne Bland",
+								role: "Speaker",
+								initials: "Y",
+								pic: "jr"
+							},
+							{
+								name: "Isabelle Sherretz",
+								role: "Flower Girl",
+								initials: "I",
+								pic: "jr"
+							},
+							{
+								name: "Maddie Sherretz",
+								role: "Flower Girl",
+								initials: "M",
+								pic: "jr"
+							},
+							{
+								name: "Alexa Sherretz",
+								role: "Flower Girl",
+								initials: "A",
+								pic: "jr"
+							}
+						],
+					}
+				},
+			},
+			observers: [
+			]
+		});
+	</script>
+</dom-module>
