@@ -34,40 +34,35 @@
 		<app-route route="{{route}}" pattern="/:page" data="{{routeData}}"></app-route>
 		<!-- <app-scrollpos-control selected="{{routeData.page}}"></app-scrollpos-control> -->
 
-		<app-header-layout id="hp" fullbleed has-scrolling-region shadow class="paper-header-panel">
-			<app-header effects="waterfall" condenses reveals fixed shadow slot="header">
-				<app-toolbar class="top-toolbar">
-				  <!-- <div condensed-title>
-					<div class="heading-wrap small">
-						<a href="/"><h1 class="main-title">CHRIS&nbsp;<iron-icon class="header-icon" icon="fa:fa-heart">+</iron-icon>&nbsp;ASHLEY</h1></a>
+		<app-header-layout id="hp" fullbleed has-scrolling-region shadow class="paper-header-panel" scroll-target="content">
+			<app-header slot="header" fixed condenses effects="waterfall">
+				<app-toolbar main-header> 
+					<div main-header class="header">Chris + Ashley
+						<div class="heading-wrap">
+							<a href="/"><h1 class="main-title">CHRIS&nbsp;<iron-icon class="header-icon" icon="fa:fa-heart">+</iron-icon>&nbsp;ASHLEY</h1></a>
+						</div>
+						<nav class="main-nav">
+							<ul class="nav-ul">
+								<li class="nav-li" id="our-story">
+									<a class="nav-a" href="/our-story"><span>OUR STORY</span></a>
+								</li>
+								<li class="nav-li" id="when-where">
+									<a class="nav-a" href="/when-where"><span>WHEN &AMP; WHERE</span></a>
+								</li>
+								<li class="nav-li" id="whos-who">
+									<a class="nav-a" href="/whos-who"><span>WHO&apos;S WHO</span></a>
+								</li>
+								<li class="nav-li" id="registry">
+									<a class="nav-a" href="/registry"><span>REGISTRY</span></a>
+								</li>
+								<li class="nav-li" id="rsvp">
+									<a class="nav-a" href="/rsvp"><span>RSVP</span></a>
+								</li>
+							</ul> 
+						</nav>
 					</div>
-				  </div> -->
-				  <div main-title>
-					<div class="heading-wrap">
-						<a href="/"><h1 class="main-title">CHRIS&nbsp;<iron-icon class="header-icon" icon="fa:fa-heart">+</iron-icon>&nbsp;ASHLEY</h1></a>
-					</div>
-					<nav class="main-nav">
-						<ul class="nav-ul">
-							<li class="nav-li" id="our-story">
-								<a class="nav-a" href="/our-story"><span>OUR STORY</span></a>
-							</li>
-							<li class="nav-li" id="when-where">
-								<a class="nav-a" href="/when-where"><span>WHEN &AMP; WHERE</span></a>
-							</li>
-							<li class="nav-li" id="whos-who">
-								<a class="nav-a" href="/whos-who"><span>WHO&apos;S WHO</span></a>
-							</li>
-							<li class="nav-li" id="registry">
-								<a class="nav-a" href="/registry"><span>REGISTRY</span></a>
-							</li>
-							<li class="nav-li" id="rsvp">
-								<a class="nav-a" href="/rsvp"><span>RSVP</span></a>
-							</li>
-						</ul> 
-					</nav>
-				  </div>
 				</app-toolbar>
-			  </app-header>
+			</app-header>
 			<div id="content">
 
 				<iron-pages selected="{{routeData.page}}" attr-for-selected="id" fallback-selection="our-story">

@@ -1,10 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<!-- <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html"> -->
-<link rel="import" href="../../bower_components/app-layout/app-layout.html">
-<!-- <link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html"> -->
-<!-- <link rel="import" href="../../bower_components/app-layout/app-header/app-header.html"> -->
-<!-- <link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html"> -->
-<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../../bower_components/app-route/app-location.html">
 <link rel="import" href="../../bower_components/app-route/app-route.html">
@@ -32,18 +27,12 @@
 
 		<app-location route="{{route}}"></app-location>
 		<app-route route="{{route}}" pattern="/:page" data="{{routeData}}"></app-route>
-		<!-- <app-scrollpos-control selected="{{routeData.page}}"></app-scrollpos-control> -->
 
-		<app-header-layout id="hp" fullbleed has-scrolling-region shadow class="paper-header-panel">
-			<app-header effects="waterfall" condenses reveals fixed shadow slot="header">
-				<app-toolbar class="top-toolbar">
-				  <!-- <div condensed-title>
-					<div class="heading-wrap small">
-						<a href="/"><h1 class="main-title">CHRIS&nbsp;<iron-icon class="header-icon" icon="fa:fa-heart">+</iron-icon>&nbsp;ASHLEY</h1></a>
-					</div>
-				  </div> -->
-				  <div main-title>
+		<paper-header-panel id="hp" mode="waterfall-tall" class="cyan header-panel" tall-class="tall">
+			<div class="paper-header">
+				<header class="full-height">
 					<div class="heading-wrap">
+						<!-- <a href="/"><h1 class="main-title">CHRIS + ASHLEY</h1></a> -->
 						<a href="/"><h1 class="main-title">CHRIS&nbsp;<iron-icon class="header-icon" icon="fa:fa-heart">+</iron-icon>&nbsp;ASHLEY</h1></a>
 					</div>
 					<nav class="main-nav">
@@ -65,10 +54,9 @@
 							</li>
 						</ul> 
 					</nav>
-				  </div>
-				</app-toolbar>
-			  </app-header>
-			<div id="content">
+				</header>
+			</div>
+			<div class="content">
 
 				<iron-pages selected="{{routeData.page}}" attr-for-selected="id" fallback-selection="our-story">
 					
@@ -86,7 +74,7 @@
 					</div>
 
 					<!-- ************************************************ -->
-					****************WHOS-WHO SECTION****************
+					<!-- ****************WHOS-WHO SECTION**************** -->
 					<!-- ************************************************ -->
 					<div id="whos-who" class="ipage">
 						<whos-who></whos-who>
@@ -107,7 +95,7 @@
 					</div>
 				</iron-pages>
 			</div>
-		</app-header-layout>
+		</paper-header-panel>
 
 
 	</template>
@@ -122,7 +110,151 @@
 					type: String,
 					value: 'wedding-polymer-app',
 				},
-				
+				// data: {
+				// 	type: Object,
+				// 	value: {
+				// 		"bridesmaids":[
+				// 			{
+				// 				name: "Jackie Reichl",
+				// 				role: "Maid of Honor",
+				// 				initials: "J",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Danielle Paouncic",
+				// 				role: "Maid of Honor",
+				// 				initials: "D",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Kayla Maldonado",
+				// 				role: "Bridesmaid",
+				// 				initials: "K",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Kyra Englerth",
+				// 				role: "Bridesmaid",
+				// 				initials: "K",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Daria Rose",
+				// 				role: "Bridesmaid",
+				// 				initials: "D",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Ashley Phelps",
+				// 				role: "Bridesmaid",
+				// 				initials: "A",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Brittany Morgan",
+				// 				role: "Bridesmaid",
+				// 				initials: "B",
+				// 				pic: "jr"
+				// 			}
+				// 		],
+				// 		"groomsmen":[
+				// 			{
+				// 				name: "Brian Murone",
+				// 				role: "Best Man",
+				// 				initials: "B",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Tom Bachmann",
+				// 				role: "Best Man",
+				// 				initials: "T",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "George Maldonado",
+				// 				role: "Groomsman",
+				// 				initials: "G",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Trevor Reed",
+				// 				role: "Groomsman",
+				// 				initials: "T",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Josh Morgan",
+				// 				role: "Groomsman",
+				// 				initials: "J",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Logan Williams",
+				// 				role: "Groomsman",
+				// 				initials: "L",
+				// 				pic: "jr"
+				// 			}
+				// 		],
+				// 		"family":[
+				// 			{
+				// 				name: "Mr. and Mrs. Samuel & Linda Reichl",
+				// 				role: "Father / Step-mother of the Bride",
+				// 				initials: "R",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Ms. Suzanne Reichl",
+				// 				role: "Mother of the Bride",
+				// 				initials: "S",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Mr. and Mrs. David and Linda Murone",
+				// 				role: "Parents of the Groom",
+				// 				initials: "M",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Mr. and Mrs. Ed and Helen Battista",
+				// 				role: "Grandparents of the Bride",
+				// 				initials: "B",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Mrs. Roseann Lubold",
+				// 				role: "Grandmother of the Groom",
+				// 				initials: "R",
+				// 				pic: "jr"
+				// 			}
+				// 		],
+				// 		"rest":[
+				// 			{
+				// 				name: "John Locke",
+				// 				role: "Master of Ceremonies",
+				// 				initials: "J",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Yvonne Bland",
+				// 				role: "Speaker",
+				// 				initials: "Y",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Isabelle Sherretz",
+				// 				role: "Flower Girl",
+				// 				initials: "I",
+				// 				pic: "jr"
+				// 			},
+				// 			{
+				// 				name: "Maddie Sherretz",
+				// 				role: "Flower Girl",
+				// 				initials: "M",
+				// 				pic: "jr"
+				// 			}
+				// 		],
+				// 	}
+				// },
 			},
 			observers: [
 				'_onRouteChanged(route.*)'
@@ -148,8 +280,8 @@
 
 			},
 			_onRouteChanged: function(newValue) {
-				// console.log(this.$$('#hp'));
-				// this.$$('#hp').scroll(0,0);
+				// console.log(this);
+				// this.$('hp')._scroll(0,0);
 			}
 
 		});
