@@ -23,176 +23,181 @@ var config = require('./gulpConfig/gulpconfig.json');
 
 /* Compile SASS */
 gulp.task('sass', function() {
-    var sassOptions = {
-        importer: importOnce,
-        importOnce: {
-            index: true,
-            bower: true
-        }
-    };
+		var sassOptions = {
+				importer: importOnce,
+				importOnce: {
+						index: true,
+						bower: true
+				}
+		};
 
-    return gulp.src(config.sassFileSources)
-        .pipe(sass(sassOptions).on('error', sass.logError))
-        .pipe(gulp.dest(config.cssDestFolder));
+		return gulp.src(config.sassFileSources)
+				.pipe(sass(sassOptions).on('error', sass.logError))
+				.pipe(gulp.dest(config.cssDestFolder));
 });
 
 gulp.task('minify', function() {
-    return gulp.src(config.cssDestFolder + '/**/*.css')
-        .pipe(mincss())
-        .pipe(gulp.dest(config.cssDestFolder));
+		return gulp.src(config.cssDestFolder + '/**/*.css')
+				.pipe(mincss())
+				.pipe(gulp.dest(config.cssDestFolder));
 });
 
 /* Autoprefixer */
 gulp.task('prefix', function() {
-    return gulp.src(config.cssDestFolder + '/**/*.css')
-        .pipe(autoprefixer({
-            browsers: ['last 4 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest(config.cssDestFolder));
+		return gulp.src(config.cssDestFolder + '/**/*.css')
+				.pipe(autoprefixer({
+						browsers: ['last 4 versions'],
+						cascade: false
+				}))
+				.pipe(gulp.dest(config.cssDestFolder));
 });
 
 /* Generate Polymer Style-Module from .css file */
 /* note that functions can be implemented in filename/module ID for more than 1 file support */
 gulp.task("polymerize", function() {
-    return gulp.src(config.cssDestFolder+'/**/*.css')
-        .pipe(stylemod({
-            filename: function(file) {
-                return path.basename(file.path, path.extname(file.path));
-            },
-            moduleId: function(file) {
-                return path.basename(file.path, path.extname(file.path));
-            }
-        }))
-        .pipe(gulp.dest(config.polymerModuleDest));
+		return gulp.src(config.cssDestFolder+'/**/*.css')
+				.pipe(stylemod({
+						filename: function(file) {
+								return path.basename(file.path, path.extname(file.path));
+						},
+						moduleId: function(file) {
+								return path.basename(file.path, path.extname(file.path));
+						}
+				}))
+				.pipe(gulp.dest(config.polymerModuleDest));
 });
 
 /* Tasks for cleanup before and after a build */
 gulp.task('clean:build', function() {
-    return del([config.cssDestFolder].concat(config.cleanupToMakeNewBuild));
+		return del([config.cssDestFolder].concat(config.cleanupToMakeNewBuild));
 });
 
 gulp.task('clean:cleanup', function() {
-    return del([config.cssDestFolder].concat(config.cleanupAfterBuild));
+		return del([config.cssDestFolder].concat(config.cleanupAfterBuild));
 });
 
 gulp.task('clean:imagemin', function() {
-    return del(config.imageDest);
+		return del(config.imageDest);
 });
 
 gulp.task('clean:responsive', function() {
-    return del(config.resImages);
+		return del(config.resImages);
 });
 
 /* Build task */
 gulp.task('build', function(cb) {
-    runSequence('clean:build', 'sass', 'prefix', 'minify', 'polymerize', 'clean:cleanup', cb);
+		runSequence('clean:build', 'sass', 'prefix', 'minify', 'polymerize', 'clean:cleanup', cb);
 });
 
 /* Dist task */
 gulp.task('dist', function(cb) {
-    runSequence('build', 'img', 'polybuild', 'vulcanize');
+		runSequence('build', 'img', 'polybuild', 'vulcanize');
 
 });
 
 /* Images task */
 gulp.task('img', function() {
-    runSequence('responsive', 'imagemin');
+		runSequence('responsive', 'imagemin');
 
 });
 
 /* Watch task */
 gulp.task('default', function(cb) {
-    gulp.watch(config.sassFileSources, ['build']);
+		gulp.watch(config.sassFileSources, ['build']);
 });
 
 gulp.task('imagemin', ['clean:imagemin'], function() {
-    gulp.src('./' + config.resImages + '/**/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('./' + config.imageDest))
+		gulp.src('./' + config.resImages + '/**/*')
+				.pipe(imagemin())
+				.pipe(gulp.dest('./' + config.imageDest))
 });
 
 gulp.task('responsive', ['clean:responsive', 'responsive-people'], function () {
-  return gulp.src(config.rawImages + '/*.{png,jpg}')
-    .pipe(
-      responsive({
-      // Resize all JPG images to five different sizes: 400, 810, 1280, 1920, and original size for 2x screens.
-      'bg-*.jpg': [{
-        width: 400,
-        rename: { suffix: '-mobile' },
-      }, {
-        width: 810,
-        rename: { suffix: '-tablet' },
-      }, {
-        width: 1280,
-        rename: { suffix: '-laptop' },
-      }, {
-        width: 1920,
-        rename: { suffix: '-hd' },
-      }, {
-        // Compress, strip metadata, and rename original image
-        rename: { suffix: '-original' },
-      }],
-      'slyn.jpg': [{
-        width: 150,
-      }, {
-        width: 150 * 2,
-        rename: { suffix: '-2x' },
-      }],
-    }, {
-      // Global configuration for all images
-      // The output quality for JPEG, WebP and TIFF output formats
-      quality: 70,
-      // Use progressive (interlace) scan for JPEG and PNG output
-      progressive: true,
-      // Strip all metadata
-      withMetadata: false,
-      errorOnUnusedConfig:false,
-      errorOnUnusedImage:false
-    })
-    )
-    .pipe(gulp.dest('./' + config.resImages));
+	return gulp.src(config.rawImages + '/*.{png,jpg}')
+		.pipe(
+			responsive({
+			// Resize all JPG images to five different sizes: 400, 810, 1280, 1920, and original size for 2x screens.
+			'bg-*.jpg': [{
+				width: 400,
+				rename: { suffix: '-mobile' },
+			}, {
+				width: 810,
+				rename: { suffix: '-tablet' },
+			}, {
+				width: 1280,
+				rename: { suffix: '-laptop' },
+			}, {
+				width: 1920,
+				rename: { suffix: '-hd' },
+			}, {
+				// Compress, strip metadata, and rename original image
+				rename: { suffix: '-original' },
+			}],
+			'slyn.jpg': [{
+				width: 150,
+			}, {
+				width: 150 * 2,
+				rename: { suffix: '-2x' },
+			}],
+		}, {
+			// Global configuration for all images
+			// The output quality for JPEG, WebP and TIFF output formats
+			quality: 70,
+			// Use progressive (interlace) scan for JPEG and PNG output
+			progressive: true,
+			// Strip all metadata
+			withMetadata: false,
+			errorOnUnusedConfig:false,
+			errorOnUnusedImage:false
+		})
+		)
+		.pipe(gulp.dest('./' + config.resImages));
 });
 
 gulp.task('responsive-people', function () {
-  return gulp.src(config.rawImages + '/people/*.{png,jpg}')
-    .pipe(
-      responsive({
-      // Resize all JPG images to five different sizes: 400, 810, 1280, 1920, and original size for 2x screens.
-      '*.jpg': [{
-        width: 200,
-      }, 
-      // {
-      //   width: 200 * 2,
-      //   rename: { suffix: '-2x' },
-      // }
-      ],
+	return gulp.src(config.rawImages + '/people/*.{png,jpg}')
+		.pipe(
+			responsive({
+			// Resize all JPG images to five different sizes: 400, 810, 1280, 1920, and original size for 2x screens.
+			'*.jpg': [{
+				width: 200,
+			}, 
+			// {
+			//   width: 200 * 2,
+			//   rename: { suffix: '-2x' },
+			// }
+			],
 
-      // 'chalkboard.jpg': [{
-      //   width: 1920,
-      // }],
-    }, {
-      // Global configuration for all images
-      // The output quality for JPEG, WebP and TIFF output formats
-      quality: 70,
-      // Use progressive (interlace) scan for JPEG and PNG output
-      progressive: true,
-      // Strip all metadata
-      withMetadata: false,
-      errorOnUnusedConfig:false,
-      errorOnUnusedImage:false
-    })
-    )
-    .pipe(gulp.dest('./' + config.resImages + '/people'));
+			// 'chalkboard.jpg': [{
+			//   width: 1920,
+			// }],
+		}, {
+			// Global configuration for all images
+			// The output quality for JPEG, WebP and TIFF output formats
+			quality: 70,
+			// Use progressive (interlace) scan for JPEG and PNG output
+			progressive: true,
+			// Strip all metadata
+			withMetadata: false,
+			errorOnUnusedConfig:false,
+			errorOnUnusedImage:false
+		})
+		)
+		.pipe(gulp.dest('./' + config.resImages + '/people'));
 });
 
 gulp.task('polybuild', shell.task([
-  'polymer build'
+	'polymer build'
 ]))
 
 gulp.task('vulcanize', function(){
-  return gulp.src('build/unbundled/src/wedding-polymer-app/wedding-polymer-app.html')
-  .pipe(vulcanize())
-  .pipe(crisper())
-  .pipe(gulp.dest('build/unbundled/src/wedding-polymer-app'));
+	return gulp.src('build/unbundled/src/wedding-polymer-app/wedding-polymer-app.html')
+	.pipe(vulcanize({
+			inlineCss: true,
+			inlineScripts: true,
+			stripComments: true
+		}
+	))
+	.pipe(crisper())
+	.pipe(gulp.dest('build/unbundled/src/wedding-polymer-app'));
 })
