@@ -8,17 +8,7 @@
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/iron-icons/maps-icons.html">
 <link rel="import" href="../../bower_components/px-polymer-font-awesome/px-polymer-font-awesome.html">
-
-<link rel="import" href="./our-story.html">
-<link rel="import" href="./when-where.html">
-<link rel="import" href="./whos-who.html">
-<link rel="import" href="./registry.html">
-<link rel="import" href="./rsvp.html">
-
-
-
-<!-- <script type="text/javascript" src="http://app.rsvpify.com/embed/104583"></script>
-<script type="text/javascript" src="http://app.rsvpify.com/js/iframeResizer.min.js"></script> -->
+<script src="../../bower_components/page/page.js"></script>
 
 <dom-module id="wedding-polymer-app">
 	<template>
@@ -28,11 +18,10 @@
 		<app-location route="{{route}}"></app-location>
 		<app-route route="{{route}}" pattern="/:page" data="{{routeData}}"></app-route>
 
-		<paper-header-panel id="hp" mode="waterfall-tall" class="cyan header-panel" tall-class="tall">
+		<paper-header-panel scroller id="hp" mode="waterfall-tall" class="cyan header-panel" tall-class="tall">
 			<div class="paper-header">
 				<header class="full-height">
 					<div class="heading-wrap">
-						<!-- <a href="/"><h1 class="main-title">CHRIS + ASHLEY</h1></a> -->
 						<a href="/"><h1 class="main-title">CHRIS&nbsp;<iron-icon class="header-icon" icon="fa:fa-heart">+</iron-icon>&nbsp;ASHLEY</h1></a>
 					</div>
 					<nav class="main-nav">
@@ -52,49 +41,58 @@
 							<li class="nav-li" id="rsvp">
 								<a class="nav-a" href="/rsvp"><span>RSVP</span></a>
 							</li>
+							<li class="nav-li" id="nitty-gritty">
+								<a class="nav-a" href="/nitty-gritty"><span>NITTY GRITTY</span></a>
+							</li>
 						</ul> 
 					</nav>
 				</header>
 			</div>
-			<div class="content">
 
-				<iron-pages selected="{{routeData.page}}" attr-for-selected="id" fallback-selection="our-story">
-					
-					<!-- *********************************************** -->
-					<!-- ***************OUR STORY SECTION*************** -->
-					<!-- *********************************************** -->
-					<div id="our-story" class="ipage">
-						<our-story></our-story>
-					</div>
-					<!-- ************************************************ -->
-					<!-- ***************WHEN-WHERE SECTION*************** -->
-					<!-- ************************************************ -->
-					<div id="when-where" class="ipage">
-						<when-where></when-where>
-					</div>
+			<iron-pages selected="[[routeData.page]]" attr-for-selected="id">
+				
+				<!-- *********************************************** -->
+				<!-- ***************OUR STORY SECTION*************** -->
+				<!-- *********************************************** -->
+				<div id="our-story" class="ipage">
+					<our-story></our-story>
+				</div>
 
-					<!-- ************************************************ -->
-					<!-- ****************WHOS-WHO SECTION**************** -->
-					<!-- ************************************************ -->
-					<div id="whos-who" class="ipage">
-						<whos-who></whos-who>
-					</div>
+				<!-- ************************************************ -->
+				<!-- ***************WHEN-WHERE SECTION*************** -->
+				<!-- ************************************************ -->
+				<div id="when-where" class="ipage">
+					<when-where></when-where>
+				</div>
 
-					<!-- ********************************************** -->
-					<!-- ***************REGISTRY SECTION*************** -->
-					<!-- ********************************************** -->
-					<div id="registry" class="ipage">
-						<wed-registry></wed-registry>
-					</div>
+				<!-- ************************************************ -->
+				<!-- ****************WHOS-WHO SECTION**************** -->
+				<!-- ************************************************ -->
+				<div id="whos-who" class="ipage">
+					<whos-who></whos-who>
+				</div>
 
-					<!-- ********************************************** -->
-					<!-- *****************RSVP SECTION***************** -->
-					<!-- ********************************************** -->
-					<div id="rsvp" class="ipage colorpanel" style="background-color: lightgray; height:calc(100vh - 3em);">
-						<rsvp-module></rsvp-module>
-					</div>
-				</iron-pages>
-			</div>
+				<!-- ********************************************** -->
+				<!-- ***************REGISTRY SECTION*************** -->
+				<!-- ********************************************** -->
+				<div id="registry" class="ipage">
+					<wed-registry></wed-registry>
+				</div>
+
+				<!-- ********************************************** -->
+				<!-- *****************RSVP SECTION***************** -->
+				<!-- ********************************************** -->
+				<div id="rsvp" class="ipage colorpanel" style="background-color: lightgray; height:calc(100vh - 6em);">
+					<rsvp-module></rsvp-module>
+				</div>
+
+				<!-- ************************************************ -->
+				<!-- **************NITTY-GRITTY SECTION************** -->
+				<!-- ************************************************ -->
+				<div id="nitty-gritty" class="ipage">
+					<nitty-gritty></nitty-gritty>
+				</div>
+			</iron-pages>
 		</paper-header-panel>
 
 
@@ -110,160 +108,25 @@
 					type: String,
 					value: 'wedding-polymer-app',
 				},
-				// data: {
-				// 	type: Object,
-				// 	value: {
-				// 		"bridesmaids":[
-				// 			{
-				// 				name: "Jackie Reichl",
-				// 				role: "Maid of Honor",
-				// 				initials: "J",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Danielle Paouncic",
-				// 				role: "Maid of Honor",
-				// 				initials: "D",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Kayla Maldonado",
-				// 				role: "Bridesmaid",
-				// 				initials: "K",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Kyra Englerth",
-				// 				role: "Bridesmaid",
-				// 				initials: "K",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Daria Rose",
-				// 				role: "Bridesmaid",
-				// 				initials: "D",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Ashley Phelps",
-				// 				role: "Bridesmaid",
-				// 				initials: "A",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Brittany Morgan",
-				// 				role: "Bridesmaid",
-				// 				initials: "B",
-				// 				pic: "jr"
-				// 			}
-				// 		],
-				// 		"groomsmen":[
-				// 			{
-				// 				name: "Brian Murone",
-				// 				role: "Best Man",
-				// 				initials: "B",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Tom Bachmann",
-				// 				role: "Best Man",
-				// 				initials: "T",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "George Maldonado",
-				// 				role: "Groomsman",
-				// 				initials: "G",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Trevor Reed",
-				// 				role: "Groomsman",
-				// 				initials: "T",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Josh Morgan",
-				// 				role: "Groomsman",
-				// 				initials: "J",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Logan Williams",
-				// 				role: "Groomsman",
-				// 				initials: "L",
-				// 				pic: "jr"
-				// 			}
-				// 		],
-				// 		"family":[
-				// 			{
-				// 				name: "Mr. and Mrs. Samuel & Linda Reichl",
-				// 				role: "Father / Step-mother of the Bride",
-				// 				initials: "R",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Ms. Suzanne Reichl",
-				// 				role: "Mother of the Bride",
-				// 				initials: "S",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Mr. and Mrs. David and Linda Murone",
-				// 				role: "Parents of the Groom",
-				// 				initials: "M",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Mr. and Mrs. Ed and Helen Battista",
-				// 				role: "Grandparents of the Bride",
-				// 				initials: "B",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Mrs. Roseann Lubold",
-				// 				role: "Grandmother of the Groom",
-				// 				initials: "R",
-				// 				pic: "jr"
-				// 			}
-				// 		],
-				// 		"rest":[
-				// 			{
-				// 				name: "John Locke",
-				// 				role: "Master of Ceremonies",
-				// 				initials: "J",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Yvonne Bland",
-				// 				role: "Speaker",
-				// 				initials: "Y",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Isabelle Sherretz",
-				// 				role: "Flower Girl",
-				// 				initials: "I",
-				// 				pic: "jr"
-				// 			},
-				// 			{
-				// 				name: "Maddie Sherretz",
-				// 				role: "Flower Girl",
-				// 				initials: "M",
-				// 				pic: "jr"
-				// 			}
-				// 		],
-				// 	}
-				// },
 			},
 			observers: [
-				'_onRouteChanged(route.*)'
+				'_onRouteChanged(routeData.page)'
 			],
 
 			ready: function(){
-				if (this.route.path == "/"){
-					this.set('route.path', '/our-story');
-				}
+				// console.log(this.routeData.page);
+
+				page('/', () => {
+					page.redirect('/our-story');
+				});
+
+				page({
+
+				});
+
+				// if (this.route.path == "/"){
+				// 	this.set('route.path', '/our-story');
+				// }
 				if (this.route.path == "/our-story/"){
 					this.set('route.path', '/our-story');
 				}
@@ -280,8 +143,23 @@
 
 			},
 			_onRouteChanged: function(newValue) {
-				// console.log(this);
-				// this.$('hp')._scroll(0,0);
+				console.log('changed');
+				if(this.routeData.page == ''){return}
+				this._lazyLoad(this.routeData.page);
+				this.$$('#hp').scroller.scrollTop = 0;
+			},
+			_lazyLoad: function(newValue) {
+				if(Polymer.isInstance(this.$$(newValue))) {
+					return
+				}
+				Polymer.Base.importHref(
+					'/src/wedding-polymer-app/'+ newValue + '.html',
+					() => {
+						return
+					}, () => {
+						console.log('Something failed!');
+					}, true
+				)
 			}
 
 		});

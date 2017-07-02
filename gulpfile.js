@@ -8,6 +8,8 @@ var mincss = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 var responsive = require('gulp-responsive');
 var shell = require('gulp-shell')
+var vulcanize = require('gulp-vulcanize')
+var crisper = require('gulp-crisper');
 
 
 //Node Packages
@@ -89,7 +91,7 @@ gulp.task('build', function(cb) {
 
 /* Dist task */
 gulp.task('dist', function(cb) {
-    runSequence('build', 'img', 'polybuild');
+    runSequence('build', 'img', 'polybuild', 'vulcanize');
 
 });
 
@@ -187,3 +189,10 @@ gulp.task('responsive-people', function () {
 gulp.task('polybuild', shell.task([
   'polymer build'
 ]))
+
+gulp.task('vulcanize', function(){
+  return gulp.src('build/unbundled/src/wedding-polymer-app/wedding-polymer-app.html')
+  .pipe(vulcanize())
+  .pipe(crisper())
+  .pipe(gulp.dest('build/unbundled/src/wedding-polymer-app'));
+})

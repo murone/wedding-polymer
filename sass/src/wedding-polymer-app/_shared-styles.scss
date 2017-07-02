@@ -64,9 +64,6 @@ h4{
 	/*height: 100%;*/
 }
 
-.content {
-	height: calc(100vh - 3em);;
-}
 .colorpanel{
 	display: flex;
 	flex-direction: column;
@@ -113,6 +110,9 @@ paper-icon-button{
 	justify-content: space-around;
 	align-items: center;
 }
+.section-title{
+	 text-shadow: 1px 1px darkgray;
+}
 
 
 /*//////////////////////////////////////////////////////*/
@@ -155,8 +155,6 @@ paper-icon-button{
 	}
 	h4{
 		text-align: left;
-	}
-	.content {
 	}
 	.colorpanel{
 		display: flex;

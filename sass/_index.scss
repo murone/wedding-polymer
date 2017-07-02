@@ -9,6 +9,7 @@ html {
 	min-width: 300px;
 	display: flex;
 }
+
 body {
 	@apply(--layout-inline);
 	@apply(--layout-center-center);
