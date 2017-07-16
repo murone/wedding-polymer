@@ -1,0 +1,190 @@
+<!-- <link rel="import" href="../../bower_components/polymer/polymer.html"> -->
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="./nitty-gritty-styles.html">
+
+<dom-module id="nitty-gritty">
+	<template>
+		
+		<style include="nitty-gritty-styles"></style>
+
+		<section class="colorpanel details"><h2 class="section-title">ALL THE JUICY DETAILS</h2></section>
+		<section class="colorpanel food">
+			<h1 class="full-width">Food and Drink</h1>
+			<h3 class="">Come Hungry!</h3>
+			<p class="venue">Carolina-style BBQ, prepared and served by<br><em>Pittsburgh BBQ Company</em></p>
+			<a class="bbq-link" href="https://pghbbq.com" tabindex="-1"  target="_blank" >
+				<img class="bbq-logo" src="../../svg/pbbqc.png">
+				<!-- <paper-icon-button src="../../svg/pbbqc.png"></paper-icon-button> -->
+			</a>
+		</section>
+		<section class="colorpanel dress" >
+			<h1 class="full-width">Dress Code</h1>
+			<p class="prepared">Come prepared for</p>
+			<h3 class="dressy-casual">"Dressy Casual"</h3>
+			<div class="img-wrap">
+				<img class="dress-ex" style='background-image: url("../../img/dress/guys.jpg");'>
+				<img class="dress-ex" style='background-image: url("../../img/dress/gals.jpg");'>
+				<img class="dress-ex" style='background-image: url("../../img/dress/boots.jpg");'>
+				<img class="dress-ex" style='background-image: url("../../img/dress/jeans.jpg");'>
+			</div>
+		</section>
+		<section class="questions">
+			<h1 class="full-width">FAQ</h1>
+			<template is="dom-repeat" items="{{questions}}" as="question">
+				<h4 class="question">{{question.question}}</h4>
+				<p class="answer">{{question.answer}}</p>
+			</template>
+<!-- 			<h4 class="question">I have a question not answered here; how do I contact you?</h4>
+			<p class="answer">Please contact us using <a href="" on-click="_scrollDown">the form below</a> which will send your question to our wedding email.</p> -->
+		</section>
+		<section class="colorpanel logistics" >
+			<h1 class="full-width">Looking for hotel and day-of logistics?</h1>
+			<p class="check-out">Check out</p>
+			<a class="when-where" href="/when-where"><h3 class="when-where">When &amp; Where</h3></a>
+			<p class="">for venue details, directions, and hotels.</p>
+		</section>
+		<section id="contact" class="colorpanel contact" >
+			<h1 class="full-width">Still not sure?</h1>
+			<h3 class="">If we missed something, or you need to get in touch...</h3>
+			<iron-form id="ironContactForm">
+				<form id="contactForm" >
+					<paper-input auto-validate required label="Name" type="text" name="name" id="name" value="{{formData.name}}" tabindex="100"></paper-input>
+					<paper-input auto-validate required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" label="Email" type="email" name="email" id="email" value="{{formData.email}}" tabindex="101"></paper-input>
+					<paper-input auto-validate required label="Subject" type="text" name="subject" id="subject" value="{{formData.subj}}" tabindex="102"></paper-input>
+					<paper-textarea auto-validate required label="What's your question?" type="text" name="question" id="question" value="{{formData.msg}}" rows="5" tabindex="103"></paper-textarea>
+					<paper-button  raised id="formSubmitButton" on-click="_submitForm" tabindex="104">Submit</paper-button>
+				</form>
+			</iron-form>
+			<h1 id="formMessage" class="hide"><br><br>{{formMessage}}<br><br><br></h1>
+		</section>
+		<iron-ajax
+			id="formRequest"
+			method="post"
+			headers='{"Content-Type": "application/json"}'
+			url="https://lrgkbxp9zd.execute-api.us-east-1.amazonaws.com/prd/contactUsFunction"
+			handle-as="json"
+			body ="{{formData}}"
+			on-response="_handleResponse"
+			on-error="_handleError"
+			debounce-duration="300">
+		</iron-ajax>
+
+	</template>
+
+	<script>
+		Polymer({
+
+			is: 'nitty-gritty',
+
+			properties: {
+				formData: {
+					type: Object,
+					value: function() { return {}; },
+				},
+				formMessage: {
+					type: String,
+					value: "Oops, something went wrong! Please try again later.",
+				},
+				questions: {
+					type: Array,
+					value: [
+						{
+							'question': "What time should I arrive?",
+							'answer': "The shuttle from the hotel will be leaving at 3pm and arriving at the venue by 3:30pm. If you are driving instead, please try to arrive around 3:30pm."
+						},
+						{
+							'question': "Where should I park?",
+							'answer': "We will have an awesome parking attendant onsite who will park your car for you and keep it safe! All you have to do is drive up to the venue and he will take care of the rest."
+						},
+						{
+							'question': "Uh oh, I drove here and might have drank a little too much. What do I do?",
+							'answer': "Don't fret! Either ride home with a friend or take the shuttle back to the hotel and crash with someone you know(or get a hotel room). The venue has allowed us to leave any cars there overnight if need be. Just make sure you get back to the venue the next morning by 10am at the latest."
+						},
+						{
+							'question': "What kind of shoes should/shouldn't I wear?",
+							'answer': "There is grass, gravel, and a barn floor, so please use your discretion on footwear. The Bride will be wearing really cute, but flat sandals, and the Groom will be wearing these really nice, tan, but not TOO expensive dress shoes. Ya know, in case there's some mud and mushy grass."
+						},
+						{
+							'question': "Are kids welcome?",
+							'answer': "Children who are included in the invite are welcome. If you happen to pop out another one between now and the wedding, I would probably keep them at home!"
+						},
+						{
+							'question': "Can I bring a date?",
+							'answer': "Plus 1's who are already included in the invite are welcome! We are blessed to have so many friends and family that we are already over-capacity with the venue, so any exclusions are definitely not personal."
+						},
+						{
+							'question': "Does your wedding have a theme?",
+							'answer': "Yes, fun, fun, and more fun!! Bring your best dance moves and cornhole skills!"
+						},
+						{
+							'question': "When is the RSVP deadline?",
+							'answer': "Absolute deadline is August 30th, but please try to get your RSVP's in as soon as possible as stated on the wedding details card. If we haven't heard from you by then, we will bother you, probably at the most inconvenient time, to find out what's going on. No worries if you can't make it, we just need to know."
+						},
+						{
+							'question': "Are the ceremony and reception locations wheelchair accessible?",
+							'answer': "Yes, they are! No stairs here."
+						},
+						{
+							'question': "What should/could I do between the ceremony and the reception?",
+							'answer': "There will be a cocktail hour with munchies (hors d'oeuvres are too fancy for this party!), drinks, and games."
+						},
+						{
+							'question': "Will there be dancing?",
+							'answer': "AWWW HECK YEAH! We are counting on YOU to keep the dance floor bumping allll nighhhhht longggg (like the song)."
+						},
+						{
+							'question': "What time will the reception end?",
+							'answer': "10:30pm. However, if you are taking the shuttle back to the hotel, it will be there at 10:15pm, so please plan accordingly!! Last call at the bar begins at 10pm."
+						},
+						{
+							'question': "Can I take pictures?",
+							'answer': "YAAASS! We would love for you to take pictures for us. Just try to be conscious of our lovely photographer and her assistant who will be running around everywhere looking for the best shots. We also have two Instagram hashtags for you to use and a Snapchat filter if that's your thing. Use them!!!!"
+						},
+						{
+							'question': "I want to write a check to the bride and groom. What name(s) should I put?",
+							'answer': "Wow, thank you for the gift! Just make sure you write the check out to either the groom OR the bride (using her Maiden name). Please don't put both of our names as the bank will not accept it. Thank you!!!"
+						},
+						{
+							'question': "I have a question not answered here; how do I contact you?",
+							'answer': "Please shoot us an email at muronereichlwedding@gmail.com with \"Question\" as the Subject."
+						}
+					]
+				}
+			},
+			observers: [
+			],
+			ready: function(){
+				var form = this.$$('#ironContactForm');
+				var submitButton = this.$$('#formSubmitButton');
+			},
+			_scrollDown: function() {
+				var scrolldiv = document.getElementById('hp');
+				scrolldiv.scroller.scrollTop = 10000;
+			},
+			_submitForm: function() {
+				if (this.$$('#ironContactForm').validate() == true){
+					this.$$('#formRequest').generateRequest();
+				}
+				else{
+					alertString = "Please correct invalid fields"
+					alert(alertString);
+				}
+			},
+			_handleResponse: function(e) {
+				console.log(e);
+				this.formMessage = "Thanks! We'll get back to you at " + e.detail.response.details.email + ' as soon as we can about "' + e.detail.response.details.subj +'"';
+				console.log (this.formMessage);
+				this.$$('#contactForm').classList.add('hide');
+				this.$$('#formMessage').classList.remove('hide');
+			},
+			_handleError: function(e) {
+				console.log(e);
+				this.$$('#contactForm').classList.add('hide');
+				this.$$('#formMessage').classList.remove('hide');
+			},
+		});
+	</script>
+</dom-module>

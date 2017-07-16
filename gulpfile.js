@@ -112,7 +112,7 @@ gulp.task('imagemin', ['clean:imagemin'], function() {
 				.pipe(gulp.dest('./' + config.imageDest))
 });
 
-gulp.task('responsive', ['clean:responsive', 'responsive-people'], function () {
+gulp.task('responsive', ['clean:responsive', 'responsive-people', 'responsive-dress'], function () {
 	return gulp.src(config.rawImages + '/*.{png,jpg}')
 		.pipe(
 			responsive({
@@ -184,6 +184,38 @@ gulp.task('responsive-people', function () {
 		})
 		)
 		.pipe(gulp.dest('./' + config.resImages + '/people'));
+});
+
+gulp.task('responsive-dress', function () {
+	return gulp.src(config.rawImages + '/dress/*.{png,jpg}')
+		.pipe(
+			responsive({
+			// Resize all JPG images to five different sizes: 400, 810, 1280, 1920, and original size for 2x screens.
+			'*.jpg': [{
+				width: 548,
+			}, 
+			// {
+			//   width: 200 * 2,
+			//   rename: { suffix: '-2x' },
+			// }
+			],
+
+			// 'chalkboard.jpg': [{
+			//   width: 1920,
+			// }],
+		}, {
+			// Global configuration for all images
+			// The output quality for JPEG, WebP and TIFF output formats
+			quality: 70,
+			// Use progressive (interlace) scan for JPEG and PNG output
+			progressive: true,
+			// Strip all metadata
+			withMetadata: false,
+			errorOnUnusedConfig:false,
+			errorOnUnusedImage:false
+		})
+	)
+	.pipe(gulp.dest('./' + config.resImages + '/dress'));
 });
 
 gulp.task('polybuild', shell.task([

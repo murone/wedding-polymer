@@ -1,6 +1,10 @@
 $headingcolor: black;
 $mint: #AAF0D1;
 
+host{
+	--paper-input-container-focus-color: $mint;
+}
+
 * {
 	font-family: 'Slabo 27px', serif;
 	box-sizing: border-box;
@@ -253,4 +257,12 @@ paper-icon-button{
 /*/////////////////////////////////////////////////////*/
 .full-width{
 	width: 100%;
+}
+.light-gray{
+	background-color: lightgray;
+	padding: 5%;
+	display: flex;
+}
+.hide{
+	display: none;
 }
