@@ -102,12 +102,13 @@ a:hover.when-where{
 }
 iron-form{
 	width: 100%;
-};
+	min-height: 350px;};
 form{
 	display: flex;
 	box-sizing: border-box;
 	flex-wrap: wrap;
 	justify-content: flex-end;
+	height: 100%;
 };
 paper-button{
 	background: $mint;
@@ -119,6 +120,13 @@ paper-button{
 paper-input, paper-textarea, paper-button{
 	padding: 0 1em;
 }
+paper-spinner-lite{
+	--paper-spinner-color: $mint;
+	--paper-spinner-stroke-width: 6px;
+	width: 350px;
+	height: 350px;
+}
+
 #name, #email{
 	width: 100%;
 }
@@ -126,7 +134,15 @@ paper-input, paper-textarea, paper-button{
 #subject, #question{
 	width: 100%;
 }
-
+.msg-wrap{
+	min-height: 350px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.hide{
+	display: none;
+}
 
 /*//////////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////////*/

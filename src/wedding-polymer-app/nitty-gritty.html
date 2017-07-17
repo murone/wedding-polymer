@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner-lite.html">
 <link rel="import" href="./nitty-gritty-styles.html">
 
 <dom-module id="nitty-gritty">
@@ -52,13 +53,16 @@
 			<iron-form id="ironContactForm">
 				<form id="contactForm" >
 					<paper-input auto-validate required label="Name" type="text" name="name" id="name" value="{{formData.name}}" tabindex="100"></paper-input>
-					<paper-input auto-validate required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" label="Email" type="email" name="email" id="email" value="{{formData.email}}" tabindex="101"></paper-input>
+					<paper-input auto-validate required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$" label="Email" type="email" name="email" id="email" value="{{formData.email}}" tabindex="101"></paper-input>
 					<paper-input auto-validate required label="Subject" type="text" name="subject" id="subject" value="{{formData.subj}}" tabindex="102"></paper-input>
 					<paper-textarea auto-validate required label="What's your question?" type="text" name="question" id="question" value="{{formData.msg}}" rows="5" tabindex="103"></paper-textarea>
 					<paper-button  raised id="formSubmitButton" on-click="_submitForm" tabindex="104">Submit</paper-button>
 				</form>
 			</iron-form>
-			<h1 id="formMessage" class="hide"><br><br>{{formMessage}}<br><br><br></h1>
+			<paper-spinner-lite alt="Sending request" class="hide"></paper-spinner-lite>
+			<div class="msg-wrap hide">
+				<h1 id="formMessage" ><br><br>{{formMessage}}<br><br><br></h1>
+			</div>
 		</section>
 		<iron-ajax
 			id="formRequest"
@@ -157,8 +161,7 @@
 			observers: [
 			],
 			ready: function(){
-				var form = this.$$('#ironContactForm');
-				var submitButton = this.$$('#formSubmitButton');
+				
 			},
 			_scrollDown: function() {
 				var scrolldiv = document.getElementById('hp');
@@ -167,6 +170,10 @@
 			_submitForm: function() {
 				if (this.$$('#ironContactForm').validate() == true){
 					this.$$('#formRequest').generateRequest();
+					this.$$('#ironContactForm').classList.add('hide');
+					var spinner = this.$$('paper-spinner-lite')
+					spinner.active = true;
+					spinner.classList.remove('hide');
 				}
 				else{
 					alertString = "Please correct invalid fields"
@@ -174,16 +181,14 @@
 				}
 			},
 			_handleResponse: function(e) {
-				console.log(e);
-				this.formMessage = "Thanks! We'll get back to you at " + e.detail.response.details.email + ' as soon as we can about "' + e.detail.response.details.subj +'"';
+				this.formMessage = "Thanks! We'll get back to you as soon as we can at " + e.detail.response.details.email + ' about "' + e.detail.response.details.subj +'"';
 				console.log (this.formMessage);
-				this.$$('#contactForm').classList.add('hide');
-				this.$$('#formMessage').classList.remove('hide');
+				this.$$('paper-spinner-lite').classList.add('hide');
+				this.$$('.msg-wrap').classList.remove('hide');
 			},
 			_handleError: function(e) {
-				console.log(e);
-				this.$$('#contactForm').classList.add('hide');
-				this.$$('#formMessage').classList.remove('hide');
+				this.$$('paper-spinner-lite').classList.add('hide');
+				this.$$('.msg-wrap').classList.remove('hide');
 			},
 		});
 	</script>
