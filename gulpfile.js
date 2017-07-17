@@ -223,7 +223,7 @@ gulp.task('polybuild', shell.task([
 ]))
 
 gulp.task('vulcanize', function(){
-	return gulp.src('build/unbundled/src/wedding-polymer-app/wedding-polymer-app.html')
+	return gulp.src('build/default/src/wedding-polymer-app/wedding-polymer-app.html')
 	.pipe(vulcanize({
 			inlineCss: true,
 			inlineScripts: true,
@@ -231,5 +231,5 @@ gulp.task('vulcanize', function(){
 		}
 	))
 	.pipe(crisper())
-	.pipe(gulp.dest('build/unbundled/src/wedding-polymer-app'));
+	.pipe(gulp.dest('build/default/src/wedding-polymer-app'));
 })

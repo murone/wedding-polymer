@@ -42,8 +42,56 @@
 	width: 200;
 	height: 120px;
 }
+.honeyfund{
+	width: 400px;
+    height: 400px;
+    background-image: url(https://d20t6we9nb6rnn.cloudfront.net/gallery/products/cash_default.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.honeyfund span{
+	font-family: 'Open Sans',sans-serif;
+    font-variant: small-caps;
+    font-weight: 300;
+    letter-spacing: .1em;
+	font-size: 3em;
+}
+.honeyfund a:link, .honeyfund a:visited, .honeyfund a:hover, .honeyfund a:active, {
+	text-decoration: none;
+	color: white;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	background-color:rgba(0, 0, 0, 0.5);
+	transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
+.honeyfund:hover.honeyfund a{
+	background-color:rgba(0, 0, 0, 0.1);
+	background-color:rgba(0, 0, 0, 0.1);
+	font-size: 1.1em;
+	transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+}
 
-
+#bbb{
+	order: 1;
+}
+#ama{
+	order: 3;
+}
+#honeyfund{
+	order: 0;
+}
 
 
 /*//////////////////////////////////////////////////////*/
@@ -60,8 +108,6 @@
 	}
 }
 
-
-
  
 /*//////////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////////*/
@@ -74,6 +120,37 @@
 	/*//////////////REGISTRY-CONTENT//////////////*/
 	.registry{
 		height: calc(100vh - 6em);
+	}
+/*
+	.links-wrap {
+		flex-direction: row;
+	}
+	#bbb{
+		order: 1;
+	}
+	#ama{
+		order: 3;
+	}
+	#honeyfund{
+		order: 2;
+	}*/
+
+}
+
+
+@media screen and (min-width: 1150px){
+
+	.links-wrap {
+		flex-direction: row;
+	}
+	#bbb{
+		order: 1;
+	}
+	#ama{
+		order: 3;
+	}
+	#honeyfund{
+		order: 2;
 	}
 
 }

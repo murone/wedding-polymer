@@ -2,8 +2,12 @@
   "entrypoint": "index.html",
   "shell": "src/wedding-polymer-app/wedding-polymer-app.html",
   "fragments": [
-    "",
-    ""
+    "src/wedding-polymer-app/nitty-gritty.html",
+    "src/wedding-polymer-app/our-story.html",
+    "src/wedding-polymer-app/registry.html",
+    "src/wedding-polymer-app/rsvp.html",
+    "src/wedding-polymer-app/when-where.html",
+    "src/wedding-polymer-app/whos-who.html"
   ],
   "sources": [
     "src/**/*",
